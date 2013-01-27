@@ -7,25 +7,41 @@
 //
 
 #import "AppDelegate.h"
-
-#import "ViewController.h"
+#import "TodoListViewController.h"
 
 @implementation AppDelegate
+
+@synthesize window = _window;
+@synthesize navigationController = _navigationController;
 
 - (void)dealloc
 {
     [_window release];
-    [_viewController release];
+    [_navigationController release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    UITableViewController *viewController = [[TodoListViewController alloc] initWithStyle:UITableViewStylePlain];    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+
+    // Affectation de ma fenêtre qui prend la taille de tout l'écran
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+    self.window.rootViewController = self.navigationController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    // Création d'un rectangle gris
+//    CGRect viewRect = CGRectMake(40, 40, 50, 100);
+//    UIView *myView = [[UIView alloc] initWithFrame:viewRect];
+//    myView.backgroundColor = [UIColor darkGrayColor];
+//    
+//    [self.window addSubview:myView];
+    
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 

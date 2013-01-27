@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D91CEBA016B5C96200D5EF32 /* TaskViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CEB9F16B5C96200D5EF32 /* TaskViewCell.m */; };
+		D91CEBDC16B5CC9800D5EF32 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CEBDB16B5CC9800D5EF32 /* Task.m */; };
 		D9515DF716B5A5CB00821DBF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9515DF616B5A5CB00821DBF /* UIKit.framework */; };
 		D9515DF916B5A5CB00821DBF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9515DF816B5A5CB00821DBF /* Foundation.framework */; };
 		D9515DFB16B5A5CB00821DBF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9515DFA16B5A5CB00821DBF /* CoreGraphics.framework */; };
@@ -16,11 +18,14 @@
 		D9515E0916B5A5CB00821DBF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D9515E0816B5A5CB00821DBF /* Default.png */; };
 		D9515E0B16B5A5CB00821DBF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9515E0A16B5A5CB00821DBF /* Default@2x.png */; };
 		D9515E0D16B5A5CB00821DBF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9515E0C16B5A5CB00821DBF /* Default-568h@2x.png */; };
-		D9515E1016B5A5CB00821DBF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9515E0F16B5A5CB00821DBF /* ViewController.m */; };
-		D9515E1316B5A5CB00821DBF /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9515E1116B5A5CB00821DBF /* ViewController.xib */; };
+		D9515E1016B5A5CB00821DBF /* TodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9515E0F16B5A5CB00821DBF /* TodoListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D91CEB9E16B5C96200D5EF32 /* TaskViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewCell.h; sourceTree = "<group>"; };
+		D91CEB9F16B5C96200D5EF32 /* TaskViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewCell.m; sourceTree = "<group>"; };
+		D91CEBDA16B5CC9800D5EF32 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		D91CEBDB16B5CC9800D5EF32 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		D9515DF216B5A5CB00821DBF /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9515DF616B5A5CB00821DBF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9515DF816B5A5CB00821DBF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -34,9 +39,8 @@
 		D9515E0816B5A5CB00821DBF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D9515E0A16B5A5CB00821DBF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D9515E0C16B5A5CB00821DBF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D9515E0E16B5A5CB00821DBF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D9515E0F16B5A5CB00821DBF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D9515E1216B5A5CB00821DBF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		D9515E0E16B5A5CB00821DBF /* TodoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodoListViewController.h; sourceTree = "<group>"; };
+		D9515E0F16B5A5CB00821DBF /* TodoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +89,9 @@
 			children = (
 				D9515E0516B5A5CB00821DBF /* AppDelegate.h */,
 				D9515E0616B5A5CB00821DBF /* AppDelegate.m */,
-				D9515E0E16B5A5CB00821DBF /* ViewController.h */,
-				D9515E0F16B5A5CB00821DBF /* ViewController.m */,
-				D9515E1116B5A5CB00821DBF /* ViewController.xib */,
+				D9515E1916B5A5DC00821DBF /* Models */,
+				D9515E1A16B5A5E500821DBF /* Views */,
+				D9515E1B16B5A5EB00821DBF /* Controllers */,
 				D9515DFD16B5A5CB00821DBF /* Supporting Files */,
 			);
 			path = Todo;
@@ -105,6 +109,33 @@
 				D9515E0C16B5A5CB00821DBF /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9515E1916B5A5DC00821DBF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D91CEBDA16B5CC9800D5EF32 /* Task.h */,
+				D91CEBDB16B5CC9800D5EF32 /* Task.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D9515E1A16B5A5E500821DBF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D91CEB9E16B5C96200D5EF32 /* TaskViewCell.h */,
+				D91CEB9F16B5C96200D5EF32 /* TaskViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D9515E1B16B5A5EB00821DBF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D9515E0E16B5A5CB00821DBF /* TodoListViewController.h */,
+				D9515E0F16B5A5CB00821DBF /* TodoListViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +193,6 @@
 				D9515E0916B5A5CB00821DBF /* Default.png in Resources */,
 				D9515E0B16B5A5CB00821DBF /* Default@2x.png in Resources */,
 				D9515E0D16B5A5CB00821DBF /* Default-568h@2x.png in Resources */,
-				D9515E1316B5A5CB00821DBF /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +205,9 @@
 			files = (
 				D9515E0316B5A5CB00821DBF /* main.m in Sources */,
 				D9515E0716B5A5CB00821DBF /* AppDelegate.m in Sources */,
-				D9515E1016B5A5CB00821DBF /* ViewController.m in Sources */,
+				D9515E1016B5A5CB00821DBF /* TodoListViewController.m in Sources */,
+				D91CEBA016B5C96200D5EF32 /* TaskViewCell.m in Sources */,
+				D91CEBDC16B5CC9800D5EF32 /* Task.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,14 +220,6 @@
 				D9515E0016B5A5CB00821DBF /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D9515E1116B5A5CB00821DBF /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D9515E1216B5A5CB00821DBF /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -290,6 +314,7 @@
 				D9515E1816B5A5CB00821DBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
