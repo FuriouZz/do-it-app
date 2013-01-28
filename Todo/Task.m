@@ -9,37 +9,42 @@
 #import "Task.h"
 
 @implementation Task
-
-@synthesize taskId      = _taskId;
+@synthesize taskID      = _taskID;
 @synthesize title       = _title;
 @synthesize description = _description;
 
-- (id)initWithAttributes:(NSDictionary *)attributes
-{
-    [super init];
+- (id)initWithAttributes:(NSDictionary *)attributes {
+    self = [super init];
     if(!self){
         return nil;
     }
     
-    _taskId      = [[attributes valueForKeyPath:@"id"] integerValue];
+    _taskID      = [[attributes valueForKeyPath:@"id"] integerValue];
     _title       = [attributes valueForKeyPath:@"title"];
     _description = [attributes valueForKeyPath:@"description"];
     
     return self;
 }
 
-+ (NSArray *)loadTasks
-{
-    NSMutableArray *mutableTasks = [NSMutableArray array];
-    
-    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          @"Banane", @"title", @"Description", @"description", nil];
-    
-    Task *task = [[Task alloc] initWithAttributes:dict];
-
-    [mutableTasks addObject:task];
-    
-    return mutableTasks;
+- (void)dealloc {
+    [_title release];
+    [_description release];
+    [super dealloc];
 }
+
+//#pragma mark -
+//
+//+ (NSArray *)loadTasks {
+//    NSMutableArray *mutableTasks = [NSMutableArray array];
+//    
+//    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
+//                          @"Banane", @"title", @"Description", @"description", nil];
+//    
+//    Task *task = [[Task alloc] initWithAttributes:dict];
+//
+//    [mutableTasks addObject:task];
+//    
+//    return mutableTasks;
+//}
 
 @end

@@ -10,12 +10,12 @@
 
 @interface Task : NSObject
 
-@property (readonly) NSUInteger taskId;
-@property (readonly) NSString *title;
-@property (readonly) NSString *description;
+@property (readonly) NSUInteger taskID;
+@property (retain, readonly) NSString *title;
+@property (retain, readonly) NSString *description;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
 
-+ (NSArray *)loadTask;
+//+ (NSArray *)loadTask;
 
 @end

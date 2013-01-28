@@ -12,7 +12,7 @@
 
 @interface TaskViewCell : UITableViewCell
 
-@property (nonatomic, strong) Task *task;
+@property (retain, nonatomic) Task *task;
 
 + (CGFloat)heightForCellWithPost:(Task *)task;
 @end

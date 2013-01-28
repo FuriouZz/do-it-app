@@ -10,28 +10,24 @@
 #import "TodoListViewController.h"
 
 @implementation AppDelegate
-
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
 
-- (void)dealloc
-{
-    [_window release];
-    [_navigationController release];
-    [super dealloc];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    UITableViewController *viewController = [[TodoListViewController alloc] initWithStyle:UITableViewStylePlain];    
+    UITableViewController *viewController = [[TodoListViewController alloc] initWithStyle:UITableViewStylePlain];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
 
     // Affectation de ma fenêtre qui prend la taille de tout l'écran
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    self.window.rootViewController = self.navigationController;
     self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
+    
+    [viewController release];
+    
+    return YES;
     
     // Création d'un rectangle gris
 //    CGRect viewRect = CGRectMake(40, 40, 50, 100);
@@ -39,10 +35,6 @@
 //    myView.backgroundColor = [UIColor darkGrayColor];
 //    
 //    [self.window addSubview:myView];
-    
-    [self.window makeKeyAndVisible];
-
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -72,4 +64,10 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)dealloc
+{
+    [_window release];
+    [_navigationController release];
+    [super dealloc];
+}
 @end
