@@ -109,8 +109,8 @@
     if (!cell) {
         cell = [[TaskViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+
     cell.task = [[_tasks objectAtIndex:indexPath.row] retain];
-    
     return cell;
 }
 
