@@ -23,7 +23,7 @@
 
 - (void)loadTask:(id)sender {
     NSMutableArray *mutableTasks = [[NSMutableArray alloc] init];
-        
+    
     Task *task1 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
                                                     @"Banane", @"title", @"Description de la mort", @"description", nil] autorelease]];
     Task *task2 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
@@ -104,8 +104,6 @@
 // Retourne une cellule avec toutes les informations
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
-    
-    NSLog(@"%d", indexPath.row);
     
     TaskViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
