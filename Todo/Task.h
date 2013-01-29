@@ -11,6 +11,7 @@
 @interface Task : NSObject
 
 @property (readonly) NSUInteger taskID;
+
 @property (retain, readonly) NSString *title;
 @property (retain, readonly) NSString *description;
 

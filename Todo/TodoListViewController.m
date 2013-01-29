@@ -23,7 +23,7 @@
 
 - (void)loadTask:(id)sender {
     NSMutableArray *mutableTasks = [[NSMutableArray alloc] init];
-        
+    
     Task *task1 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
                                                     @"Banane", @"title", @"Description de la mort", @"description", nil] autorelease]];
     Task *task2 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
@@ -105,14 +105,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
+<<<<<<< HEAD
     NSLog(@"%d", indexPath.row);
     
+=======
+>>>>>>> 263bf0174b3fdf3f684bbfe6e993d37031057c62
     TaskViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[TaskViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+<<<<<<< HEAD
     cell.task = [[_tasks objectAtIndex:indexPath.row] retain];
     
+=======
+    cell.task = [_tasks objectAtIndex:indexPath.row];
+>>>>>>> 263bf0174b3fdf3f684bbfe6e993d37031057c62
     return cell;
 }
 
