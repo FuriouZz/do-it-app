@@ -19,7 +19,8 @@
 		D9515E0B16B5A5CB00821DBF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9515E0A16B5A5CB00821DBF /* Default@2x.png */; };
 		D9515E0D16B5A5CB00821DBF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9515E0C16B5A5CB00821DBF /* Default-568h@2x.png */; };
 		D9515E1016B5A5CB00821DBF /* TodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9515E0F16B5A5CB00821DBF /* TodoListViewController.m */; };
-		D9C73B2D16B9482800ADA68F /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C73B2C16B9482800ADA68F /* NavigationViewController.m */; };
+		D972AE0516B9E0CF00422FF8 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D972AE0416B9E0CF00422FF8 /* AddTaskViewController.m */; };
+		D972AE0916B9E3C100422FF8 /* AddTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = D972AE0816B9E3C100422FF8 /* AddTaskView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +43,10 @@
 		D9515E0C16B5A5CB00821DBF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D9515E0E16B5A5CB00821DBF /* TodoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodoListViewController.h; sourceTree = "<group>"; };
 		D9515E0F16B5A5CB00821DBF /* TodoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoListViewController.m; sourceTree = "<group>"; };
-		D9C73B2B16B9482800ADA68F /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
-		D9C73B2C16B9482800ADA68F /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		D972AE0316B9E0CF00422FF8 /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
+		D972AE0416B9E0CF00422FF8 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
+		D972AE0716B9E3C100422FF8 /* AddTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskView.h; sourceTree = "<group>"; };
+		D972AE0816B9E3C100422FF8 /* AddTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 			children = (
 				D91CEB9E16B5C96200D5EF32 /* TaskViewCell.h */,
 				D91CEB9F16B5C96200D5EF32 /* TaskViewCell.m */,
+				D972AE0716B9E3C100422FF8 /* AddTaskView.h */,
+				D972AE0816B9E3C100422FF8 /* AddTaskView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -137,8 +142,8 @@
 			children = (
 				D9515E0E16B5A5CB00821DBF /* TodoListViewController.h */,
 				D9515E0F16B5A5CB00821DBF /* TodoListViewController.m */,
-				D9C73B2B16B9482800ADA68F /* NavigationViewController.h */,
-				D9C73B2C16B9482800ADA68F /* NavigationViewController.m */,
+				D972AE0316B9E0CF00422FF8 /* AddTaskViewController.h */,
+				D972AE0416B9E0CF00422FF8 /* AddTaskViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -213,7 +218,8 @@
 				D9515E1016B5A5CB00821DBF /* TodoListViewController.m in Sources */,
 				D91CEBA016B5C96200D5EF32 /* TaskViewCell.m in Sources */,
 				D91CEBDC16B5CC9800D5EF32 /* Task.m in Sources */,
-				D9C73B2D16B9482800ADA68F /* NavigationViewController.m in Sources */,
+				D972AE0516B9E0CF00422FF8 /* AddTaskViewController.m in Sources */,
+				D972AE0916B9E3C100422FF8 /* AddTaskView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

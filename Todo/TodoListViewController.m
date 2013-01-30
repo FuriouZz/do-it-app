@@ -29,15 +29,16 @@
 
 - (void)loadView {
     [super loadView];
+    self.title = NSLocalizedString(@"Todo List", nil);
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                                           target:self
+                                                                                           action:@selector(addTask)];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-//    self.title = NSLocalizedString(@"Todo List", nil);
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(dealloc)];
-//    self.tableView.rowHeight = 70.0f;
+    self.tableView.rowHeight = 70.0f;
     
     [self loadTask:nil];
 }
@@ -66,14 +67,30 @@
     return cell;
 }
 
-//#pragma mark - UITableViewDelegate
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return [TaskViewCell heightForCellWithPost:[_tasks objectAtIndex:indexPath.row]];
-//}
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//}
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [TaskViewCell heightForCellWithPost:[_tasks objectAtIndex:indexPath.row]];
+}
+
+// Quand une cellule est selectionnée, le fond gris disparait
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - AddTaskViewDelegate
+
+- (void)addTask
+{
+    AddTaskViewController *controller = [[[AddTaskViewController alloc] init] autorelease];
+    controller.delegate = self;
+    controller.modalTransitionStyle =  UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)addTaskViewControllerDidFinish:(AddTaskViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

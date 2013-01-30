@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "NavigationViewController.h"
 #import "TodoListViewController.h"
 
 @implementation AppDelegate
@@ -24,7 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UITableViewController *tableViewController = [[TodoListViewController alloc] initWithStyle:UITableViewStylePlain];
-    self.navigationController = [[NavigationViewController alloc] initWithRootViewController:tableViewController];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
     
     // Affectation de ma fenêtre qui prend la taille de tout l'écran
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];

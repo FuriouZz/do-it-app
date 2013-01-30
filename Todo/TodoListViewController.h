@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddTaskViewController.h"
 
-@interface TodoListViewController : UITableViewController
+@interface TodoListViewController : UITableViewController <AddTaskViewControllerDelegate>
 
 @end
