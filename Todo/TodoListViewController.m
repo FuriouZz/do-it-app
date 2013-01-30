@@ -7,71 +7,22 @@
 //
 
 #import "TodoListViewController.h"
-
 #import "Task.h"
-
 #import "TaskViewCell.h"
 
 @interface TodoListViewController ()
-- (void)loadTask:(id)sender;
+@property (retain, nonatomic) NSArray *tasks;
 @end
 
-@implementation TodoListViewController {
-@private
-    __strong NSArray *_tasks;
-}
-
-- (void)loadTask:(id)sender {
-    NSMutableArray *mutableTasks = [[NSMutableArray alloc] init];
-    
-    Task *task1 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                    @"Banane", @"title", @"Description de la mort", @"description", nil] autorelease]];
-    Task *task2 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                    @"Banane 2", @"title", @"Les bananes c'est bon, il faut en manger jour ET nuit.", @"description", nil]  autorelease]];
-    Task *task3 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                    @"Banane", @"title", @"Description de la mort", @"description", nil]  autorelease]];
-    Task *task4 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                    @"Banane 2", @"title", @"Les bananes c'est bon, il faut en manger jour ET nuit.", @"description", nil]  autorelease]];
-    Task *task5 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                    @"Banane", @"title", @"Description de la mort", @"description", nil]  autorelease]];
-    Task *task6 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                    @"Banane 2", @"title", @"Les bananes c'est bon, il faut en manger jour ET nuit.", @"description", nil]  autorelease]];
-    Task *task7 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                    @"Banane", @"title", @"Description de la mort", @"description", nil]  autorelease]];
-    Task *task8 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                    @"Banane 2", @"title", @"Les bananes c'est bon, il faut en manger jour ET nuit.", @"description", nil]  autorelease]];
-    Task *task9 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                    @"Banane", @"title", @"Description de la mort", @"description", nil]  autorelease]];
-    Task *task10 = [[Task alloc] initWithAttributes:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                    @"Banane 2", @"title", @"Les bananes c'est bon, il faut en manger jour ET nuit.", @"description", nil]  autorelease]];
-    
-    [mutableTasks addObjectsFromArray:[NSArray arrayWithObjects:task1, task2, task3, task4, task5, task6, task7, task8, task9, task10, nil]];
-    
-    _tasks = [NSArray arrayWithArray:mutableTasks];
-    
-    [task1 release];
-    [task2 release];
-    [task3 release];
-    [task4 release];
-    [task5 release];
-    [task6 release];
-    [task7 release];
-    [task8 release];
-    [task9 release];
-    [task10 release];
-    
-    [mutableTasks release];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+@implementation TodoListViewController
 
 - (void)dealloc {
     [_tasks release];
     [super dealloc];
+}
+
+- (void)loadTask:(id)sender {        
+    self.tasks = [Task loadTasks];
 }
 
 #pragma mark - UIViewController
@@ -107,10 +58,10 @@
     
     TaskViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[TaskViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[[TaskViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
 
-    cell.task = [[_tasks objectAtIndex:indexPath.row] retain];
+    cell.task = [_tasks objectAtIndex:indexPath.row];
     return cell;
 }
 

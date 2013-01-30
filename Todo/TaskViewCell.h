@@ -11,7 +11,6 @@
 @class Task;
 
 @interface TaskViewCell : UITableViewCell
-
 @property (retain, nonatomic) Task *task;
 
 + (CGFloat)heightForCellWithPost:(Task *)task;

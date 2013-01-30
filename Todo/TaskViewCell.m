@@ -9,31 +9,29 @@
 #import "TaskViewCell.h"
 #import "Task.h"
 
-@implementation TaskViewCell {
-@private
-    __strong Task *_task;  // Variable privé
-    
-}
-
+@implementation TaskViewCell
 @synthesize task = _task;
+
+- (void)dealloc {
+    [_task release];
+    [super dealloc];
+}
 
 // Définition du style de la cellule à l'initialisation de l'object
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (!self) {
-        return nil;
+    if (self) {
+        // Style du titre
+        self.textLabel.adjustsFontSizeToFitWidth = YES;
+        self.textLabel.textColor = [UIColor darkGrayColor];             // Couleur pour le titre
+        
+        // Style du détail
+        self.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];    // Taille du texte de la description
+        self.detailTextLabel.numberOfLines = 0;                         // Nombre de ligne à afficher
+        
+        // Style de la cellule
+        self.selectionStyle = UITableViewCellSelectionStyleGray;        // Style de la cellule à la selection
     }
-    
-    // Style du titre
-    self.textLabel.adjustsFontSizeToFitWidth = YES;
-    self.textLabel.textColor = [UIColor darkGrayColor];             // Couleur pour le titre
-
-    // Style du détail
-    self.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];    // Taille du texte de la description
-    self.detailTextLabel.numberOfLines = 0;                         // Nombre de ligne à afficher
-    
-    // Style de la cellule
-    self.selectionStyle = UITableViewCellSelectionStyleGray;        // Style de la cellule à la selection
     
     return self;
 }
@@ -72,10 +70,4 @@
 //
 //    // Configure the view for the selected state
 //}
-
-- (void)dealloc {
-    [_task release];
-    [super dealloc];
-}
-
 @end
