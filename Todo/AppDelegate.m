@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "NavigationViewController.h"
 #import "TodoListViewController.h"
 
 @implementation AppDelegate
@@ -23,9 +24,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UITableViewController *tableViewController = [[TodoListViewController alloc] initWithStyle:UITableViewStylePlain];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
-    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
-
+    self.navigationController = [[NavigationViewController alloc] initWithRootViewController:tableViewController];
+    
     // Affectation de ma fenêtre qui prend la taille de tout l'écran
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     self.window.backgroundColor = [UIColor whiteColor];

@@ -34,9 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.title = NSLocalizedString(@"Todo List", nil);
-    self.tableView.rowHeight = 70.0f;
+
+//    self.title = NSLocalizedString(@"Todo List", nil);
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(dealloc)];
+//    self.tableView.rowHeight = 70.0f;
     
     [self loadTask:nil];
 }
