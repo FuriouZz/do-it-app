@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D91CEBA016B5C96200D5EF32 /* TaskViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CEB9F16B5C96200D5EF32 /* TaskViewCell.m */; };
-		D91CEBDC16B5CC9800D5EF32 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CEBDB16B5CC9800D5EF32 /* Task.m */; };
+		D91CEBA016B5C96200D5EF32 /* TodoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */; };
+		D91CEBDC16B5CC9800D5EF32 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CEBDB16B5CC9800D5EF32 /* Todo.m */; };
+		D94288D816BAF76A0093A84F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D94288DA16BAF76A0093A84F /* Localizable.strings */; };
 		D9515DF716B5A5CB00821DBF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9515DF616B5A5CB00821DBF /* UIKit.framework */; };
 		D9515DF916B5A5CB00821DBF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9515DF816B5A5CB00821DBF /* Foundation.framework */; };
 		D9515DFB16B5A5CB00821DBF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9515DFA16B5A5CB00821DBF /* CoreGraphics.framework */; };
@@ -24,10 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D91CEB9E16B5C96200D5EF32 /* TaskViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewCell.h; sourceTree = "<group>"; };
-		D91CEB9F16B5C96200D5EF32 /* TaskViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewCell.m; sourceTree = "<group>"; };
-		D91CEBDA16B5CC9800D5EF32 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
-		D91CEBDB16B5CC9800D5EF32 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		D91CEB9E16B5C96200D5EF32 /* TodoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoViewCell.h; sourceTree = "<group>"; };
+		D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoViewCell.m; sourceTree = "<group>"; };
+		D91CEBDA16B5CC9800D5EF32 /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
+		D91CEBDB16B5CC9800D5EF32 /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
+		D94288D916BAF76A0093A84F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D94288DC16BAF7800093A84F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D9515DF216B5A5CB00821DBF /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9515DF616B5A5CB00821DBF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9515DF816B5A5CB00821DBF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -113,6 +116,7 @@
 				D9515E0816B5A5CB00821DBF /* Default.png */,
 				D9515E0A16B5A5CB00821DBF /* Default@2x.png */,
 				D9515E0C16B5A5CB00821DBF /* Default-568h@2x.png */,
+				D94288DA16BAF76A0093A84F /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -120,8 +124,8 @@
 		D9515E1916B5A5DC00821DBF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D91CEBDA16B5CC9800D5EF32 /* Task.h */,
-				D91CEBDB16B5CC9800D5EF32 /* Task.m */,
+				D91CEBDA16B5CC9800D5EF32 /* Todo.h */,
+				D91CEBDB16B5CC9800D5EF32 /* Todo.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -129,8 +133,8 @@
 		D9515E1A16B5A5E500821DBF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D91CEB9E16B5C96200D5EF32 /* TaskViewCell.h */,
-				D91CEB9F16B5C96200D5EF32 /* TaskViewCell.m */,
+				D91CEB9E16B5C96200D5EF32 /* TodoViewCell.h */,
+				D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */,
 				D972AE0716B9E3C100422FF8 /* AddTaskView.h */,
 				D972AE0816B9E3C100422FF8 /* AddTaskView.m */,
 			);
@@ -183,6 +187,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fr,
 			);
 			mainGroup = D9515DE716B5A5CB00821DBF;
 			productRefGroup = D9515DF316B5A5CB00821DBF /* Products */;
@@ -203,6 +208,7 @@
 				D9515E0916B5A5CB00821DBF /* Default.png in Resources */,
 				D9515E0B16B5A5CB00821DBF /* Default@2x.png in Resources */,
 				D9515E0D16B5A5CB00821DBF /* Default-568h@2x.png in Resources */,
+				D94288D816BAF76A0093A84F /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,8 +222,8 @@
 				D9515E0316B5A5CB00821DBF /* main.m in Sources */,
 				D9515E0716B5A5CB00821DBF /* AppDelegate.m in Sources */,
 				D9515E1016B5A5CB00821DBF /* TodoListViewController.m in Sources */,
-				D91CEBA016B5C96200D5EF32 /* TaskViewCell.m in Sources */,
-				D91CEBDC16B5CC9800D5EF32 /* Task.m in Sources */,
+				D91CEBA016B5C96200D5EF32 /* TodoViewCell.m in Sources */,
+				D91CEBDC16B5CC9800D5EF32 /* Todo.m in Sources */,
 				D972AE0516B9E0CF00422FF8 /* AddTaskViewController.m in Sources */,
 				D972AE0916B9E3C100422FF8 /* AddTaskView.m in Sources */,
 			);
@@ -226,6 +232,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D94288DA16BAF76A0093A84F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D94288D916BAF76A0093A84F /* en */,
+				D94288DC16BAF7800093A84F /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D9515DFF16B5A5CB00821DBF /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

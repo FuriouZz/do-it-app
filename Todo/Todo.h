@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Task : NSObject
+@interface Todo : NSObject
 
 @property (assign, nonatomic) NSUInteger taskID;
-@property (retain, nonatomic) NSString *title;
-@property (retain, nonatomic) NSString *description;
+@property (retain, nonatomic) NSString *todo;
+@property (retain, nonatomic) NSString *note;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
 + (NSArray *)loadTasks;

@@ -10,15 +10,13 @@
 #import "AddTaskViewController.h"
 
 @implementation AddTaskView
-@synthesize add = _add;
-@synthesize cancel = _cancel;
+@synthesize navBar = _navBar;
+@synthesize navItem = _navItem;
 
 -(void)dealloc
 {
     [_navBar release];
     [_navItem release];
-    [_add release];
-    [_cancel release];
     [super dealloc];
 }
 
@@ -26,7 +24,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        //[self createView];
+        [self createView];
     }
     return self;
 }
@@ -36,24 +34,23 @@
     CGRect navigationRect = [[UIScreen mainScreen] bounds];
     navigationRect.size.height = 44;
     
-    self.navBar = [[UINavigationBar alloc] initWithFrame:navigationRect];
-    self.navItem = [[UINavigationItem alloc] initWithTitle:@"Test"];
-    self.cancel = [[UIBarButtonItem alloc] init];
-//    self.cancel = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
-//                                                   style:UIBarButtonItemStylePlain
-//                                                  target:self
-//                                                  action:@selector(cancel)];
-    self.add = [[UIBarButtonItem alloc] init];
-//    self.add = [[UIBarButtonItem alloc] initWithTitle:@"Add"
-//                                                style:UIBarButtonItemStylePlain
-//                                               target:self
-//                                               action:@selector(add)];
+    self.navBar = [[[UINavigationBar alloc] initWithFrame:navigationRect] autorelease];
+    self.navItem = [[[UINavigationItem alloc] initWithTitle:@"Add a task"] autorelease];
     
-    self.navItem.leftBarButtonItem = self.cancel;
-    self.navItem.rightBarButtonItem = self.add;
     [self.navBar pushNavigationItem:self.navItem animated:YES];
-    
     [self addSubview:self.navBar];
+    
+    UITableView *addTaskForm = [[UITableView alloc] initWithFrame:CGRectMake(10, 60, 200, 40) style:UITableViewStyleGrouped];
+    
+    UITextField *todo = [[UITextField alloc] initWithFrame:CGRectMake(200, 200, 200, 40)];
+    UITextField *note = [[UITextField alloc] initWithFrame:CGRectMake(200, 400, 200, 20)];
+
+    todo.placeholder = @"Entrer un titre";
+    todo.backgroundColor = [UIColor grayColor];
+    todo.borderStyle = UITextBorderStyleRoundedRect;
+    note.placeholder = @"Entrer une description";
+    note.backgroundColor = [UIColor grayColor];
+    [self addSubview:addTaskForm];
 }
 
 /*

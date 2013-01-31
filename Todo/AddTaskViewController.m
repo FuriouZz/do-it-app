@@ -8,7 +8,6 @@
 
 #import "AddTaskViewController.h"
 #import "AddTaskView.h"
-#import "TaskViewCell.h"
 
 @interface AddTaskViewController ()
 
@@ -28,36 +27,30 @@
 -(void)loadView
 {
     [super loadView];
-	self.title = NSLocalizedString(@"Add Task", nil);
-
-    AddTaskView *myView = [[[AddTaskView alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    myView.backgroundColor = [UIColor whiteColor];
+	self.title = NSLocalizedString(@"addTask-TitleLabel", nil);
+    NSString *addLabel = NSLocalizedString(@"AddButtonLabel", nil);
+    NSString *cancelLabel = NSLocalizedString(@"CancelButtonLabel", nil);
     
-    myView.add.action = @selector(add);
-    myView.cancel.action = @selector(cancel);
-    CGRect navigationRect = [[UIScreen mainScreen] bounds];
-    navigationRect.size.height = 44;
+    AddTaskView *addTaskView = [[[AddTaskView alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    addTaskView.backgroundColor = [UIColor whiteColor];
     
-    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:navigationRect];
-    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:self.title];
-    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+    UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithTitle:cancelLabel
                                                              style:UIBarButtonItemStylePlain
                                                             target:self
                                                             action:@selector(cancel)];
-    UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithTitle:@"Add"
-                                                            style:UIBarButtonItemStylePlain
+    UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithTitle:addLabel
+                                                            style:UIBarButtonSystemItemAdd
                                                            target:self
                                                            action:@selector(add)];
-    ////    myView.add.action = @selector(add);
-    ////    myView.add.target = self;
-    ////    myView.add.style = UIBarButtonItemStylePlain;
     
-    navItem.leftBarButtonItem = done;
-    navItem.rightBarButtonItem = add;
-    [navBar pushNavigationItem:navItem animated:YES];
+    addTaskView.navItem.title = self.title;
+    addTaskView.navItem.leftBarButtonItem = cancel;
+    addTaskView.navItem.rightBarButtonItem = add;
+
+    self.view = addTaskView;
     
-    [myView addSubview:navBar];
-    self.view = myView;
+    [cancel release];
+    [add release];
 }
 
 - (void)viewDidLoad
@@ -68,7 +61,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Actions

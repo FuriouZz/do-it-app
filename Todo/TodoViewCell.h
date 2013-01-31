@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class Task;
+@class Todo;
 
-@interface TaskViewCell : UITableViewCell
-@property (retain, nonatomic) Task *task;
+@interface TodoViewCell : UITableViewCell
+@property (nonatomic, retain) Todo *task;
 
-+ (CGFloat)heightForCellWithPost:(Task *)task;
++ (CGFloat)heightForCellWithPost:(Todo *)task;
 @end

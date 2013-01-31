@@ -7,39 +7,40 @@
 //
 
 #import "TodoListViewController.h"
-#import "Task.h"
-#import "TaskViewCell.h"
+#import "Todo.h"
+#import "TodoViewCell.h"
 
 @interface TodoListViewController ()
 @property (retain, nonatomic) NSArray *tasks;
 @end
 
 @implementation TodoListViewController
+@synthesize tasks = _tasks;
 
 - (void)dealloc {
     [_tasks release];
     [super dealloc];
 }
 
-- (void)loadTask:(id)sender {        
-    self.tasks = [Task loadTasks];
+- (void)loadTask:(id)sender {
+    if(!self.tasks)
+        self.tasks = [Todo loadTasks];
 }
 
 #pragma mark - UIViewController
 
 - (void)loadView {
     [super loadView];
-    self.title = NSLocalizedString(@"Todo List", nil);
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+    self.title = NSLocalizedString(@"todoList-TitleLabel", nil);
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                            target:self
-                                                                                           action:@selector(addTask)];
-    NSLog(@"%f", self.navigationController.navigationBar.bounds.size.height);
+                                                                                           action:@selector(addTask)] autorelease];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.rowHeight = 70.0f;
+    self.tableView.rowHeight = 50.0f;
     
     [self loadTask:nil];
 }
@@ -57,11 +58,9 @@
 
 // Retourne une cellule avec toutes les informations
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-    
-    TaskViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    TodoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (!cell) {
-        cell = [[[TaskViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[TodoViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"] autorelease];
     }
 
     cell.task = [_tasks objectAtIndex:indexPath.row];
@@ -71,7 +70,7 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [TaskViewCell heightForCellWithPost:[_tasks objectAtIndex:indexPath.row]];
+    return [TodoViewCell heightForCellWithPost:[_tasks objectAtIndex:indexPath.row]];
 }
 
 // Quand une cellule est selectionnée, le fond gris disparait

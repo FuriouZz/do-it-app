@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Todo
+
+  Created by Christophe on 31/01/13.
+  Copyright (c) 2013 FuriouZz. All rights reserved.
+*/
+
+// GENERAL LOCALIZE
+"AddButtonLabel"    = "Ajouter";
+"CancelButtonLabel" = "Annuler";
+
+// TitleLabel
+"todoList-TitleLabel" = "Liste des tâches";
+"addTask-TitleLabel"  = "Ajouter une tâche";

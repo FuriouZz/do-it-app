@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 FuriouZz. All rights reserved.
 //
 
-#import "TaskViewCell.h"
-#import "Task.h"
+#import "TodoViewCell.h"
+#import "Todo.h"
 
-@implementation TaskViewCell
+@implementation TodoViewCell
 @synthesize task = _task;
 
 - (void)dealloc {
@@ -36,17 +36,15 @@
     return self;
 }
 
-- (void)setTask:(Task *)task {
+- (void)setTask:(Todo *)task {
     _task = task;
-    
-    self.textLabel.text = _task.title;
-    self.detailTextLabel.text = _task.description;
-    
-//    [self setNeedsLayout];
+
+    self.textLabel.text = _task.todo;
+    self.detailTextLabel.text = _task.note;
 }
 
-+ (CGFloat)heightForCellWithPost:(Task *)task {
-    CGSize sizeToFit = [task.description sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:CGSizeMake(220.0f, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
++ (CGFloat)heightForCellWithPost:(Todo *)task {
+    CGSize sizeToFit = [task.note sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:CGSizeMake(220.0f, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
     
     return fmaxf(70.0f, sizeToFit.height + 45.0f);
 }
