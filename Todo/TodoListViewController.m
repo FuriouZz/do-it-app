@@ -33,6 +33,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                            target:self
                                                                                            action:@selector(addTask)];
+    NSLog(@"%f", self.navigationController.navigationBar.bounds.size.height);
 }
 
 - (void)viewDidLoad
