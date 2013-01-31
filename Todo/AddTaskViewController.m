@@ -8,6 +8,7 @@
 
 #import "AddTaskViewController.h"
 #import "AddTaskView.h"
+#import "TaskViewCell.h"
 
 @interface AddTaskViewController ()
 
@@ -27,37 +28,41 @@
 -(void)loadView
 {
     [super loadView];
-
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
 	self.title = NSLocalizedString(@"Add Task", nil);
-    
-    CGRect viewRect = CGRectMake(40, 40, 50, 100);
-    UIView *myView = [[[AddTaskView alloc] initWithFrame:viewRect] autorelease];
+
+    AddTaskView *myView = [[[AddTaskView alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     myView.backgroundColor = [UIColor whiteColor];
     
+    myView.add.action = @selector(add);
+    myView.cancel.action = @selector(cancel);
     CGRect navigationRect = [[UIScreen mainScreen] bounds];
     navigationRect.size.height = 44;
     
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:navigationRect];
-    UINavigationItem *navItem =[[UINavigationItem alloc] initWithTitle:self.title];
+    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:self.title];
     UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
                                                              style:UIBarButtonItemStylePlain
                                                             target:self
                                                             action:@selector(cancel)];
     UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithTitle:@"Add"
-                                                             style:UIBarButtonItemStylePlain
-                                                            target:self
-                                                            action:@selector(add)];
+                                                            style:UIBarButtonItemStylePlain
+                                                           target:self
+                                                           action:@selector(add)];
+    ////    myView.add.action = @selector(add);
+    ////    myView.add.target = self;
+    ////    myView.add.style = UIBarButtonItemStylePlain;
+    
     navItem.leftBarButtonItem = done;
     navItem.rightBarButtonItem = add;
     [navBar pushNavigationItem:navItem animated:YES];
     
+    [myView addSubview:navBar];
     self.view = myView;
-    [self.view addSubview:navBar];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning
