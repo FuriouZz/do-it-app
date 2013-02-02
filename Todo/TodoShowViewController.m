@@ -45,8 +45,9 @@
     // Boutons de la barre de navigation
     _addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                 target:self
-                                                                action:@selector(addEvent)];
+                                                                action:@selector(addTodo)];
     self.navigationItem.rightBarButtonItem = _addButton;
+    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     // Libération mémoire
     [_addButton release];
@@ -56,8 +57,20 @@
 {
     [super viewDidLoad];
     self.tableView.rowHeight = 50.0f;
-   // self.todosArray = [[NSMutableArray alloc] init];
+
+    [self loadTodos];
+}
+
+- (void)viewDidUnload {
+    [super viewDidUnload];
     
+    self.addButton = nil;
+    self.todosArray = nil;
+}
+
+#pragma mark - Own Methods
+- (void)loadTodos
+{
     // Définition de la requête
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
@@ -78,19 +91,13 @@
     if (mutableFetchResults == nil) {
         // Handle the error.
     }
-
+    
     self.todosArray = mutableFetchResults;
+    
+    // Libération de la mémoire
     [mutableFetchResults release];
     [request release];
 }
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    
-    self.addButton = nil;
-    self.todosArray = nil;
-}
-
 
 #pragma mark - UITableViewDataSource
 
@@ -110,19 +117,28 @@
 
     cell.task = (Todo *)[_todosArray objectAtIndex:indexPath.row];
     return cell;
+}
 
-
-//    // Dequeue or create a new cell.
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (cell == nil) {
-//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-//    }
-//    
-//    Todo *todo = (Todo *)[_todosArray objectAtIndex:indexPath.row];
-//    cell.textLabel.text = todo.title;
-//    cell.detailTextLabel.text = todo.note;
-//    
-//    return cell;
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        NSManagedObject *todo = [_todosArray objectAtIndex:indexPath.row];
+        
+        // Suppression de l'entrée du contexte
+        [_managedObjectContext deleteObject:todo];
+        
+        // Suppression de l'entrée du tableau et de la vue
+        [_todosArray removeObject:todo];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+ 
+        // Enregistrement en BDD
+        NSError *error = nil;
+        if(![_managedObjectContext save:&error])
+        {
+            // Envoyer une erreur
+        }        
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -138,32 +154,35 @@
 
 #pragma mark - AddTaskViewDelegate
 
-- (void)addEvent
+- (void)addTodo
 {
-    // Create and configure a new instance of the "Todo" entity.
-    Todo *todo = (Todo *)[NSEntityDescription insertNewObjectForEntityForName:@"Todo" inManagedObjectContext:_managedObjectContext];
+    TodoAddViewController *controller = [[[TodoAddViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+    controller.delegate = self;
+    controller.modalTransitionStyle =  UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:controller animated:YES completion:nil];
+}
 
+- (void)createTodo
+{
+    // Déclaration de la nouvelle tâche et enregistrement dans le contexte
+    Todo *todo = (Todo *)[NSEntityDescription insertNewObjectForEntityForName:@"Todo" inManagedObjectContext:_managedObjectContext];
+    
     todo.title = @"Ma tâche est là !";
     todo.note  = @"Encore une nouvelle tâche de la mort à ne surtout pas rater.";
     todo.createdAt = todo.updatedAt = [NSDate date];
     
+    // Malgré que l'objet soit créé, il n'est encore enregistré dans la BDD.
+    // La tâche est déjà enregistrée dans le contexte. Mais le contexte lui ne l'est pas encore.
     NSError *error = nil;
     if(![_managedObjectContext save:&error])
     {
         // Envoyer une erreur
     }
     
+    // L'insérer dans la tableau et actualiser la liste avec la nouvelle entrée
     [_todosArray insertObject:todo atIndex:0];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-}
-
-- (void)addTask
-{
-    TodoAddViewController *controller = [[[TodoAddViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
-    controller.delegate = self;
-    controller.modalTransitionStyle =  UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)todoAddViewControllerDidFinish:(TodoAddViewController *)controller

@@ -14,6 +14,4 @@
 @property (retain, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (retain, nonatomic) NSMutableArray *todosArray;
 @property (retain, nonatomic) UIBarButtonItem *addButton;
-
-- (void)addEvent;
 @end
