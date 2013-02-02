@@ -7,8 +7,9 @@
 */
 
 // GENERAL LOCALIZE
-"AddButtonLabel" = "Add";
+"AddButtonLabel"    = "Add";
 "CancelButtonLabel" = "Cancel";
 
-// ADDTASK
-"addTask-TitleLabel" = "Add task";
+// TitleLabel
+"todoShow-TitleLabel"       = "Todos list";
+"todoAddTask-TitleLabel"    = "Add task";

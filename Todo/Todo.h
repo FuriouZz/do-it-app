@@ -1,19 +1,20 @@
 //
-//  Task.h
+//  Todo.h
 //  Todo
 //
-//  Created by Christophe Massolin on 27/01/13.
+//  Created by Christophe on 02/02/13.
 //  Copyright (c) 2013 FuriouZz. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Todo : NSObject
 
-@property (assign, nonatomic) NSUInteger taskID;
-@property (retain, nonatomic) NSString *todo;
-@property (retain, nonatomic) NSString *note;
+@interface Todo : NSManagedObject
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
-+ (NSArray *)loadTasks;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * note;
+@property (nonatomic, retain) NSDate * createdAt;
+@property (nonatomic, retain) NSDate * updatedAt;
+
 @end

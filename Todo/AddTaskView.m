@@ -7,7 +7,7 @@
 //
 
 #import "AddTaskView.h"
-#import "AddTaskViewController.h"
+#import "TodoAddViewController.h"
 
 @implementation AddTaskView
 @synthesize navBar = _navBar;
@@ -40,17 +40,19 @@
     [self.navBar pushNavigationItem:self.navItem animated:YES];
     [self addSubview:self.navBar];
     
-    UITableView *addTaskForm = [[UITableView alloc] initWithFrame:CGRectMake(10, 60, 200, 40) style:UITableViewStyleGrouped];
+    //UITableView *addTaskForm = [[UITableView alloc] initWithFrame:CGRectMake(10, 60, 200, 40) style:UITableViewStyleGrouped];
     
-    UITextField *todo = [[UITextField alloc] initWithFrame:CGRectMake(200, 200, 200, 40)];
-    UITextField *note = [[UITextField alloc] initWithFrame:CGRectMake(200, 400, 200, 20)];
+    //UITableViewCell *cell;
+    
+//    UITextField *todo = [[UITextField alloc] initWithFrame:CGRectMake(200, 200, 200, 40)];
+//    UITextField *note = [[UITextField alloc] initWithFrame:CGRectMake(200, 400, 200, 20)];
 
-    todo.placeholder = @"Entrer un titre";
-    todo.backgroundColor = [UIColor grayColor];
-    todo.borderStyle = UITextBorderStyleRoundedRect;
-    note.placeholder = @"Entrer une description";
-    note.backgroundColor = [UIColor grayColor];
-    [self addSubview:addTaskForm];
+//    todo.placeholder = @"Entrer un titre";
+//    todo.backgroundColor = [UIColor grayColor];
+//    todo.borderStyle = UITextBorderStyleRoundedRect;
+//    note.placeholder = @"Entrer une description";
+//    note.backgroundColor = [UIColor grayColor];
+    //[self addSubview:addTaskForm];
 }
 
 /*

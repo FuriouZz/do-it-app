@@ -11,5 +11,5 @@
 "CancelButtonLabel" = "Annuler";
 
 // TitleLabel
-"todoList-TitleLabel" = "Liste des tâches";
-"addTask-TitleLabel"  = "Ajouter une tâche";
+"todoShow-TitleLabel"       = "Liste des tâches";
+"todoAddTask-TitleLabel"    = "Ajouter une tâche";
