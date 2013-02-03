@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D91CEBA016B5C96200D5EF32 /* TaskViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CEB9F16B5C96200D5EF32 /* TaskViewCell.m */; };
-		D91CEBDC16B5CC9800D5EF32 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CEBDB16B5CC9800D5EF32 /* Task.m */; };
+		D91CEBA016B5C96200D5EF32 /* TodoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */; };
+		D94288D816BAF76A0093A84F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D94288DA16BAF76A0093A84F /* Localizable.strings */; };
 		D9515DF716B5A5CB00821DBF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9515DF616B5A5CB00821DBF /* UIKit.framework */; };
 		D9515DF916B5A5CB00821DBF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9515DF816B5A5CB00821DBF /* Foundation.framework */; };
 		D9515DFB16B5A5CB00821DBF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9515DFA16B5A5CB00821DBF /* CoreGraphics.framework */; };
@@ -18,16 +18,20 @@
 		D9515E0916B5A5CB00821DBF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D9515E0816B5A5CB00821DBF /* Default.png */; };
 		D9515E0B16B5A5CB00821DBF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9515E0A16B5A5CB00821DBF /* Default@2x.png */; };
 		D9515E0D16B5A5CB00821DBF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9515E0C16B5A5CB00821DBF /* Default-568h@2x.png */; };
-		D9515E1016B5A5CB00821DBF /* TodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9515E0F16B5A5CB00821DBF /* TodoListViewController.m */; };
-		D972AE0516B9E0CF00422FF8 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D972AE0416B9E0CF00422FF8 /* AddTaskViewController.m */; };
+		D9515E1016B5A5CB00821DBF /* TodoShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9515E0F16B5A5CB00821DBF /* TodoShowViewController.m */; };
 		D972AE0916B9E3C100422FF8 /* AddTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = D972AE0816B9E3C100422FF8 /* AddTaskView.m */; };
+		D9B56E5B16BD64B8009E26AC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B56E5A16BD64B8009E26AC /* CoreData.framework */; };
+		D9B56E6916BD69D0009E26AC /* Todo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9B56E6716BD69D0009E26AC /* Todo.xcdatamodeld */; };
+		D9B56E7016BD9709009E26AC /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B56E6F16BD9709009E26AC /* Todo.m */; };
+		D9D50D4216BDCBE60079727A /* TodoAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D50D4116BDCBE60079727A /* TodoAddViewController.m */; };
+		D9D50D4916BDDA3F0079727A /* TodoTextFieldViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D50D4816BDDA3E0079727A /* TodoTextFieldViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D91CEB9E16B5C96200D5EF32 /* TaskViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewCell.h; sourceTree = "<group>"; };
-		D91CEB9F16B5C96200D5EF32 /* TaskViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewCell.m; sourceTree = "<group>"; };
-		D91CEBDA16B5CC9800D5EF32 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
-		D91CEBDB16B5CC9800D5EF32 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		D91CEB9E16B5C96200D5EF32 /* TodoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoViewCell.h; sourceTree = "<group>"; };
+		D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoViewCell.m; sourceTree = "<group>"; };
+		D94288D916BAF76A0093A84F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D94288DC16BAF7800093A84F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D9515DF216B5A5CB00821DBF /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9515DF616B5A5CB00821DBF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9515DF816B5A5CB00821DBF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -41,12 +45,18 @@
 		D9515E0816B5A5CB00821DBF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D9515E0A16B5A5CB00821DBF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D9515E0C16B5A5CB00821DBF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D9515E0E16B5A5CB00821DBF /* TodoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodoListViewController.h; sourceTree = "<group>"; };
-		D9515E0F16B5A5CB00821DBF /* TodoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoListViewController.m; sourceTree = "<group>"; };
-		D972AE0316B9E0CF00422FF8 /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
-		D972AE0416B9E0CF00422FF8 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
+		D9515E0E16B5A5CB00821DBF /* TodoShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodoShowViewController.h; sourceTree = "<group>"; };
+		D9515E0F16B5A5CB00821DBF /* TodoShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoShowViewController.m; sourceTree = "<group>"; };
 		D972AE0716B9E3C100422FF8 /* AddTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskView.h; sourceTree = "<group>"; };
 		D972AE0816B9E3C100422FF8 /* AddTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskView.m; sourceTree = "<group>"; };
+		D9B56E5A16BD64B8009E26AC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D9B56E6816BD69D0009E26AC /* Todo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todo.xcdatamodel; sourceTree = "<group>"; };
+		D9B56E6E16BD9709009E26AC /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
+		D9B56E6F16BD9709009E26AC /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
+		D9D50D4016BDCBE60079727A /* TodoAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoAddViewController.h; sourceTree = SOURCE_ROOT; };
+		D9D50D4116BDCBE60079727A /* TodoAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoAddViewController.m; sourceTree = SOURCE_ROOT; };
+		D9D50D4716BDDA3E0079727A /* TodoTextFieldViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoTextFieldViewCell.h; sourceTree = "<group>"; };
+		D9D50D4816BDDA3E0079727A /* TodoTextFieldViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoTextFieldViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B56E5B16BD64B8009E26AC /* CoreData.framework in Frameworks */,
 				D9515DF716B5A5CB00821DBF /* UIKit.framework in Frameworks */,
 				D9515DF916B5A5CB00821DBF /* Foundation.framework in Frameworks */,
 				D9515DFB16B5A5CB00821DBF /* CoreGraphics.framework in Frameworks */,
@@ -83,6 +94,7 @@
 		D9515DF516B5A5CB00821DBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9B56E5A16BD64B8009E26AC /* CoreData.framework */,
 				D9515DF616B5A5CB00821DBF /* UIKit.framework */,
 				D9515DF816B5A5CB00821DBF /* Foundation.framework */,
 				D9515DFA16B5A5CB00821DBF /* CoreGraphics.framework */,
@@ -95,6 +107,7 @@
 			children = (
 				D9515E0516B5A5CB00821DBF /* AppDelegate.h */,
 				D9515E0616B5A5CB00821DBF /* AppDelegate.m */,
+				D9B56E6716BD69D0009E26AC /* Todo.xcdatamodeld */,
 				D9515E1916B5A5DC00821DBF /* Models */,
 				D9515E1A16B5A5E500821DBF /* Views */,
 				D9515E1B16B5A5EB00821DBF /* Controllers */,
@@ -113,6 +126,7 @@
 				D9515E0816B5A5CB00821DBF /* Default.png */,
 				D9515E0A16B5A5CB00821DBF /* Default@2x.png */,
 				D9515E0C16B5A5CB00821DBF /* Default-568h@2x.png */,
+				D94288DA16BAF76A0093A84F /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -120,8 +134,8 @@
 		D9515E1916B5A5DC00821DBF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D91CEBDA16B5CC9800D5EF32 /* Task.h */,
-				D91CEBDB16B5CC9800D5EF32 /* Task.m */,
+				D9B56E6E16BD9709009E26AC /* Todo.h */,
+				D9B56E6F16BD9709009E26AC /* Todo.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -129,10 +143,12 @@
 		D9515E1A16B5A5E500821DBF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D91CEB9E16B5C96200D5EF32 /* TaskViewCell.h */,
-				D91CEB9F16B5C96200D5EF32 /* TaskViewCell.m */,
+				D91CEB9E16B5C96200D5EF32 /* TodoViewCell.h */,
+				D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */,
 				D972AE0716B9E3C100422FF8 /* AddTaskView.h */,
 				D972AE0816B9E3C100422FF8 /* AddTaskView.m */,
+				D9D50D4716BDDA3E0079727A /* TodoTextFieldViewCell.h */,
+				D9D50D4816BDDA3E0079727A /* TodoTextFieldViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -140,10 +156,10 @@
 		D9515E1B16B5A5EB00821DBF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D9515E0E16B5A5CB00821DBF /* TodoListViewController.h */,
-				D9515E0F16B5A5CB00821DBF /* TodoListViewController.m */,
-				D972AE0316B9E0CF00422FF8 /* AddTaskViewController.h */,
-				D972AE0416B9E0CF00422FF8 /* AddTaskViewController.m */,
+				D9515E0E16B5A5CB00821DBF /* TodoShowViewController.h */,
+				D9515E0F16B5A5CB00821DBF /* TodoShowViewController.m */,
+				D9D50D4016BDCBE60079727A /* TodoAddViewController.h */,
+				D9D50D4116BDCBE60079727A /* TodoAddViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -183,6 +199,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fr,
 			);
 			mainGroup = D9515DE716B5A5CB00821DBF;
 			productRefGroup = D9515DF316B5A5CB00821DBF /* Products */;
@@ -203,6 +220,7 @@
 				D9515E0916B5A5CB00821DBF /* Default.png in Resources */,
 				D9515E0B16B5A5CB00821DBF /* Default@2x.png in Resources */,
 				D9515E0D16B5A5CB00821DBF /* Default-568h@2x.png in Resources */,
+				D94288D816BAF76A0093A84F /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,17 +233,28 @@
 			files = (
 				D9515E0316B5A5CB00821DBF /* main.m in Sources */,
 				D9515E0716B5A5CB00821DBF /* AppDelegate.m in Sources */,
-				D9515E1016B5A5CB00821DBF /* TodoListViewController.m in Sources */,
-				D91CEBA016B5C96200D5EF32 /* TaskViewCell.m in Sources */,
-				D91CEBDC16B5CC9800D5EF32 /* Task.m in Sources */,
-				D972AE0516B9E0CF00422FF8 /* AddTaskViewController.m in Sources */,
+				D9515E1016B5A5CB00821DBF /* TodoShowViewController.m in Sources */,
+				D91CEBA016B5C96200D5EF32 /* TodoViewCell.m in Sources */,
 				D972AE0916B9E3C100422FF8 /* AddTaskView.m in Sources */,
+				D9B56E6916BD69D0009E26AC /* Todo.xcdatamodeld in Sources */,
+				D9B56E7016BD9709009E26AC /* Todo.m in Sources */,
+				D9D50D4216BDCBE60079727A /* TodoAddViewController.m in Sources */,
+				D9D50D4916BDDA3F0079727A /* TodoTextFieldViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D94288DA16BAF76A0093A84F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D94288D916BAF76A0093A84F /* en */,
+				D94288DC16BAF7800093A84F /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D9515DFF16B5A5CB00821DBF /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -329,6 +358,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D9B56E6716BD69D0009E26AC /* Todo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D9B56E6816BD69D0009E26AC /* Todo.xcdatamodel */,
+			);
+			currentVersion = D9B56E6816BD69D0009E26AC /* Todo.xcdatamodel */;
+			path = Todo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D9515DE916B5A5CB00821DBF /* Project object */;
 }

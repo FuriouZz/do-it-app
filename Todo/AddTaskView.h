@@ -11,7 +11,5 @@
 @interface AddTaskView : UIView
 @property (retain, nonatomic) UINavigationBar *navBar;
 @property (retain, nonatomic) UINavigationItem *navItem;
-@property (retain, nonatomic) UIBarButtonItem *add;
-@property (retain, nonatomic) UIBarButtonItem *cancel;
 
 @end

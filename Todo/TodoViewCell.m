@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 FuriouZz. All rights reserved.
 //
 
-#import "TaskViewCell.h"
-#import "Task.h"
+#import "TodoViewCell.h"
+#import "Todo.h"
 
-@implementation TaskViewCell
+@implementation TodoViewCell
 @synthesize task = _task;
 
 - (void)dealloc {
@@ -36,34 +36,20 @@
     return self;
 }
 
-- (void)setTask:(Task *)task {
+- (void)setTask:(Todo *)task {
     _task = task;
-    
+
     self.textLabel.text = _task.title;
-    self.detailTextLabel.text = _task.description;
-    
-//    [self setNeedsLayout];
+    self.detailTextLabel.text = _task.note;
 }
 
-+ (CGFloat)heightForCellWithPost:(Task *)task {
-    CGSize sizeToFit = [task.description sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:CGSizeMake(220.0f, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
++ (CGFloat)heightForCellWithPost:(Todo *)task {
+    CGSize sizeToFit = [task.note sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:CGSizeMake(220.0f, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
     
     return fmaxf(70.0f, sizeToFit.height + 45.0f);
 }
 
 //#pragma mark - UIView
-//
-//- (void)layoutSubviews {
-//    [super layoutSubviews];
-//    
-//    //self.imageView.frame = CGRectMake(10.0f, 10.0f, 50.0f, 50.0f);
-//    self.textLabel.frame = CGRectMake(70.0f, 10.0f, 240.0f, 20.0f);
-//    
-//    CGRect detailTextLabelFrame = CGRectOffset(self.textLabel.frame, 0.0f, 25.0f);
-//    detailTextLabelFrame.size.height = [[self class] heightForCellWithPost:_task] - 45.0f;
-//    self.detailTextLabel.frame = detailTextLabelFrame;
-//}
-
 //- (void)setSelected:(BOOL)selected animated:(BOOL)animated
 //{
 //    [super setSelected:selected animated:animated];
