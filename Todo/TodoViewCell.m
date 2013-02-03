@@ -37,7 +37,6 @@
 }
 
 - (void)setTask:(Todo *)task {
-    NSLog(@"%@", task);
     _task = task;
 
     self.textLabel.text = _task.title;

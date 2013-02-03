@@ -156,9 +156,9 @@
 
 - (void)addTodo
 {
-    TodoAddViewController *controller = [[[TodoAddViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+    TodoAddViewController *controller = [[[TodoAddViewController alloc] initWithManagedObjectContext:self.managedObjectContext] autorelease];
     controller.delegate = self;
-    controller.modalTransitionStyle =  UIModalTransitionStyleFlipHorizontal;
+    controller.modalTransitionStyle =  UIModalTransitionStyleCoverVertical;
     [self presentViewController:controller animated:YES completion:nil];
 }
 

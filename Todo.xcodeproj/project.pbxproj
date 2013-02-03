@@ -20,10 +20,11 @@
 		D9515E0D16B5A5CB00821DBF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9515E0C16B5A5CB00821DBF /* Default-568h@2x.png */; };
 		D9515E1016B5A5CB00821DBF /* TodoShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9515E0F16B5A5CB00821DBF /* TodoShowViewController.m */; };
 		D972AE0916B9E3C100422FF8 /* AddTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = D972AE0816B9E3C100422FF8 /* AddTaskView.m */; };
-		D9B56E2016BD5B00009E26AC /* TodoAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B56E1F16BD5B00009E26AC /* TodoAddViewController.m */; };
 		D9B56E5B16BD64B8009E26AC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B56E5A16BD64B8009E26AC /* CoreData.framework */; };
 		D9B56E6916BD69D0009E26AC /* Todo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9B56E6716BD69D0009E26AC /* Todo.xcdatamodeld */; };
 		D9B56E7016BD9709009E26AC /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B56E6F16BD9709009E26AC /* Todo.m */; };
+		D9D50D4216BDCBE60079727A /* TodoAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D50D4116BDCBE60079727A /* TodoAddViewController.m */; };
+		D9D50D4916BDDA3F0079727A /* TodoTextFieldViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D50D4816BDDA3E0079727A /* TodoTextFieldViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,12 +49,14 @@
 		D9515E0F16B5A5CB00821DBF /* TodoShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoShowViewController.m; sourceTree = "<group>"; };
 		D972AE0716B9E3C100422FF8 /* AddTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskView.h; sourceTree = "<group>"; };
 		D972AE0816B9E3C100422FF8 /* AddTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskView.m; sourceTree = "<group>"; };
-		D9B56E1E16BD5B00009E26AC /* TodoAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoAddViewController.h; sourceTree = "<group>"; };
-		D9B56E1F16BD5B00009E26AC /* TodoAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoAddViewController.m; sourceTree = "<group>"; };
 		D9B56E5A16BD64B8009E26AC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D9B56E6816BD69D0009E26AC /* Todo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todo.xcdatamodel; sourceTree = "<group>"; };
 		D9B56E6E16BD9709009E26AC /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
 		D9B56E6F16BD9709009E26AC /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
+		D9D50D4016BDCBE60079727A /* TodoAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoAddViewController.h; sourceTree = SOURCE_ROOT; };
+		D9D50D4116BDCBE60079727A /* TodoAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoAddViewController.m; sourceTree = SOURCE_ROOT; };
+		D9D50D4716BDDA3E0079727A /* TodoTextFieldViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoTextFieldViewCell.h; sourceTree = "<group>"; };
+		D9D50D4816BDDA3E0079727A /* TodoTextFieldViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoTextFieldViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */,
 				D972AE0716B9E3C100422FF8 /* AddTaskView.h */,
 				D972AE0816B9E3C100422FF8 /* AddTaskView.m */,
+				D9D50D4716BDDA3E0079727A /* TodoTextFieldViewCell.h */,
+				D9D50D4816BDDA3E0079727A /* TodoTextFieldViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -153,8 +158,8 @@
 			children = (
 				D9515E0E16B5A5CB00821DBF /* TodoShowViewController.h */,
 				D9515E0F16B5A5CB00821DBF /* TodoShowViewController.m */,
-				D9B56E1E16BD5B00009E26AC /* TodoAddViewController.h */,
-				D9B56E1F16BD5B00009E26AC /* TodoAddViewController.m */,
+				D9D50D4016BDCBE60079727A /* TodoAddViewController.h */,
+				D9D50D4116BDCBE60079727A /* TodoAddViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -231,9 +236,10 @@
 				D9515E1016B5A5CB00821DBF /* TodoShowViewController.m in Sources */,
 				D91CEBA016B5C96200D5EF32 /* TodoViewCell.m in Sources */,
 				D972AE0916B9E3C100422FF8 /* AddTaskView.m in Sources */,
-				D9B56E2016BD5B00009E26AC /* TodoAddViewController.m in Sources */,
 				D9B56E6916BD69D0009E26AC /* Todo.xcdatamodeld in Sources */,
 				D9B56E7016BD9709009E26AC /* Todo.m in Sources */,
+				D9D50D4216BDCBE60079727A /* TodoAddViewController.m in Sources */,
+				D9D50D4916BDDA3F0079727A /* TodoTextFieldViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,4 +12,4 @@
 
 // TitleLabel
 "todoShow-TitleLabel"       = "Liste des tâches";
-"todoAddTask-TitleLabel"    = "Ajouter une tâche";
+"todoAdd-TitleLabel"        = "Ajouter une tâche";
