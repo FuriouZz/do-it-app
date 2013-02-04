@@ -140,6 +140,13 @@
     }
 }
 
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
+
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -155,8 +162,9 @@
 
 - (void)addTodo
 {
-    TodoAddViewController *controller = [[[TodoAddViewController alloc] initWithManagedObjectContext:self.managedObjectContext] autorelease];
+    TodoAddViewController *controller = [[[TodoAddViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
     controller.delegate = self;
+    controller.managedObjectContext = _managedObjectContext;
     controller.modalTransitionStyle =  UIModalTransitionStyleCoverVertical;
     
     UINavigationController *navController = [[[UINavigationController alloc] initWithRootViewController:controller] autorelease];
@@ -164,24 +172,9 @@
     [self presentViewController:navController animated:YES completion:nil];
 }
 
-- (void)createTodo:(NSArray *)values
+- (void)insertTodoToList:(Todo *)todo
 {
-    // Déclaration de la nouvelle tâche et enregistrement dans le contexte
-    Todo *todo = (Todo *)[NSEntityDescription insertNewObjectForEntityForName:@"Todo" inManagedObjectContext:_managedObjectContext];
-    
-    todo.title = @"Ma tâche est là !";
-    todo.note  = @"Encore une nouvelle tâche de la mort à ne surtout pas rater.";
-    todo.createdAt = todo.updatedAt = [NSDate date];
-    
-    // Malgré que l'objet soit créé, il n'est encore enregistré dans la BDD.
-    // La tâche est déjà enregistrée dans le contexte. Mais le contexte lui ne l'est pas encore.
-    NSError *error = nil;
-    if(![_managedObjectContext save:&error])
-    {
-        // Envoyer une erreur
-    }
-    
-    // L'insérer dans la tableau et actualiser la liste avec la nouvelle entrée
+    // Insérer la todo dans la tableau et actualiser la liste avec la nouvelle entrée
     [_todosArray insertObject:todo atIndex:0];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];

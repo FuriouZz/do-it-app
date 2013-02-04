@@ -7,17 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TodoTextField.h"
 #import "TodoTextFieldViewCell.h"
 
 @class TodoAddViewController;
 
 @protocol TodoAddViewControllerDelegate
-- (void) todoAddViewControllerDidFinish:(TodoAddViewController *) controller;
+- (void)insertTodoToList:(Todo *)todo;
+- (void)todoAddViewControllerDidFinish:(TodoAddViewController *) controller;
 @end
 
-@interface TodoAddViewController : UITableViewController <TodoTextFieldViewCellDelegate>
+@interface TodoAddViewController : UITableViewController <UITextFieldDelegate>
+{
+    TodoTextField *titleTextField;
+    TodoTextField *noteTextField;
+}
+
 @property (assign, nonatomic) id <TodoAddViewControllerDelegate> delegate;
 @property (retain, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-- (id)initWithManagedObjectContext:(NSManagedObjectContext *) moc;
 @end
