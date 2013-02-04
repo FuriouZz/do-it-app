@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TodoTextFieldViewCell.h"
 
 @class TodoAddViewController;
 
@@ -14,12 +15,9 @@
 - (void) todoAddViewControllerDidFinish:(TodoAddViewController *) controller;
 @end
 
-@interface TodoAddViewController : UITableViewController
+@interface TodoAddViewController : UITableViewController <TodoTextFieldViewCellDelegate>
 @property (assign, nonatomic) id <TodoAddViewControllerDelegate> delegate;
 @property (retain, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (retain, nonatomic) UIBarButtonItem *doneButton;
-@property (retain, nonatomic) UIBarButtonItem *cancelButton;
-@property (retain, nonatomic) UINavigationBar *navigationBar;
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *) moc;
 @end

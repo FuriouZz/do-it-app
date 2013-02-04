@@ -9,8 +9,17 @@
 #import "TodoTextFieldViewCell.h"
 
 @implementation TodoTextFieldViewCell
+@synthesize delegate = _delegate;
 @synthesize textField = _textField;
 @synthesize attribute = _attribute;
+
+-(void)dealloc
+{
+    [_delegate release];
+    [_attribute release];
+    [_textField release];
+    [super dealloc];
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -22,7 +31,11 @@
         _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _textField.textColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1];
         [_textField setFont:[UIFont systemFontOfSize:17]];
+        _textField.delegate = self;
+        
         [self.contentView addSubview:_textField];
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -31,29 +44,40 @@
 {
     [super layoutSubviews];
     CGRect origFrame = self.contentView.frame;
-    if(_textField.text != nil)
-    {
-        _textField.hidden = NO;
-        _textField.frame = CGRectMake(origFrame.origin.x, origFrame.origin.y, 125, origFrame.size.height-1);
-	} else {
-		_textField.hidden = YES;
-		_textField.frame = CGRectMake(origFrame.origin.x+10, origFrame.origin.y, origFrame.size.width-20, origFrame.size.height-1);
-	}
+    _textField.hidden = NO;
+    _textField.frame = CGRectMake(origFrame.origin.x, origFrame.origin.y, origFrame.size.width-20, origFrame.size.height-1);
     
     [self setNeedsDisplay];
 }
 
-- (void)setAttribute:(NSObject *)attribute
+- (void)setAttribute:(NSDictionary *)attribute
 {
     _attribute = attribute;
-    //NSLog(@"%@", _attribute);
+    _textField.placeholder = [_attribute objectForKey:@"label"];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    BOOL ret = YES;
+	if([_delegate respondsToSelector:@selector(textFieldCell:shouldReturnForIndexPath:withValue:)]) {
+        NSLog(@"test");
+        ret = [_delegate textFieldCell:self shouldReturnForIndexPath:_indexPath withValue:self.textField.text];
+	}
+    if(ret) {
+        [textField resignFirstResponder];
+    }
+    return ret;
+}
 
-    // Configure the view for the selected state
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+	NSString *textString = self.textField.text;
+	textString = [textString stringByReplacingCharactersInRange:range withString:string];
+
+	if([_delegate respondsToSelector:@selector(textFieldCell:updateTextLabelAtIndexPath:string:)]) {
+		[_delegate textFieldCell:self updateTextLabelAtIndexPath:_indexPath string:textString];
+	}
+    
+	return YES;
 }
 
 @end

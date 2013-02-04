@@ -47,7 +47,6 @@
                                                                 target:self
                                                                 action:@selector(addTodo)];
     self.navigationItem.rightBarButtonItem = _addButton;
-    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     // Libération mémoire
     [_addButton release];
@@ -159,10 +158,13 @@
     TodoAddViewController *controller = [[[TodoAddViewController alloc] initWithManagedObjectContext:self.managedObjectContext] autorelease];
     controller.delegate = self;
     controller.modalTransitionStyle =  UIModalTransitionStyleCoverVertical;
-    [self presentViewController:controller animated:YES completion:nil];
+    
+    UINavigationController *navController = [[[UINavigationController alloc] initWithRootViewController:controller] autorelease];
+    
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
-- (void)createTodo
+- (void)createTodo:(NSArray *)values
 {
     // Déclaration de la nouvelle tâche et enregistrement dans le contexte
     Todo *todo = (Todo *)[NSEntityDescription insertNewObjectForEntityForName:@"Todo" inManagedObjectContext:_managedObjectContext];

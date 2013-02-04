@@ -15,17 +15,13 @@
 @end
 
 @implementation TodoAddViewController
-@synthesize doneButton = _doneButton;
-@synthesize cancelButton = _cancelButton;
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize navigationBar = _navigationBar;
 
 - (void)dealloc
 {
-    [_doneButton release];
-    [_cancelButton release];
+    [_attributes release];
+    [_values release];
     [_managedObjectContext release];
-    [_navigationBar release];
     [super dealloc];
 }
 
@@ -36,11 +32,23 @@
 //        self.managedObjectContext = moc;
 //        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Todo" inManagedObjectContext:_managedObjectContext];
 //        self.attributes = [[entityDescription attributesByName] allKeys];
-//        
+//
+        
+        _values = [[NSMutableArray alloc] init];
+        
+        
+        
         self.tableView.scrollEnabled = NO;
-        self.attributes = [[NSArray alloc] initWithObjects:@"Your task", @"title", @"Your note", @"note", nil];
+        NSDictionary *title = [[NSDictionary alloc] initWithObjectsAndKeys:@"Your task", @"label", @"title", @"property", @"", @"value",  nil];
+        NSDictionary *note = [[NSDictionary alloc] initWithObjectsAndKeys:@"Your note", @"label", @"note", @"property", @"", @"value", nil];
+        _attributes = [[NSArray alloc] initWithObjects:title, note, nil];
 
-        //NSLog(@"%@", self.attributes);
+        for(int i = 0; i < _attributes.count; i++){
+            [_values insertObject:@"" atIndex:0];
+        }
+        
+        [title release];
+        [note release];
     }
     return self;
 }
@@ -49,27 +57,18 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                target:self
+                                                                                action:@selector(doneAction)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                                  target:self
+                                                                                  action:@selector(cancelAction)];
     self.title = NSLocalizedString(@"todoAdd-TitleLabel", nil);
+    self.navigationItem.rightBarButtonItem = doneButton;
+    self.navigationItem.leftBarButtonItem  = cancelButton;
     
-    self.doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                    target:self
-                                                                    action:@selector(doneAction)];
-    self.cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                      target:self
-                                                                      action:@selector(cancelAction)];
-    self.navigationItem.rightBarButtonItem = self.doneButton;
-    self.navigationItem.leftBarButtonItem  = self.cancelButton;
-
-    CGRect navigationRect = [[UIScreen mainScreen] bounds];
-    navigationRect.size.height = 44;
-    
-    self.navigationBar = [[UINavigationBar alloc] initWithFrame:navigationRect];
-    
-    [self.navigationBar pushNavigationItem:self.navigationItem animated:YES];
-    [self.view addSubview:self.navigationBar];
+    [doneButton release];
+    [cancelButton release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,9 +92,10 @@
     {
         cell = [[TodoTextFieldViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-    
+
     cell.attribute = [_attributes objectAtIndex:indexPath.row];
-    NSLog(@"%@", cell.attribute);
+    cell.indexPath = indexPath;
+    cell.delegate = self;
     
     return cell;
 }
@@ -139,24 +139,25 @@
 }
 */
 
-#pragma mark - Table view delegate
+#pragma mark - TodoTextFieldViewCellDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+- (void)textFieldCell:(TodoTextFieldViewCell *)inCell updateTextLabelAtIndexPath:(NSIndexPath *)inIndexPath string:(NSString *)inValue{
+    
+    //Add current input to values array, remove old object and insert new until entry is finished.
+    
+    if (_values.count) {
+        [_values removeObjectAtIndex:inIndexPath.row];
+        [_values insertObject:inValue atIndex:inIndexPath.row];
+    }else{
+        [_values insertObject:inValue atIndex:inIndexPath.row];
+    }
 }
+
 #pragma mark - Actions
 
 - (void)doneAction
 {
-    [self.delegate todoAddViewControllerDidFinish:self];
+    //[self.delegate todoAddViewControllerDidFinish:self];
 }
 
 - (void)cancelAction
@@ -164,46 +165,4 @@
     [self.delegate todoAddViewControllerDidFinish:self];
 }
 
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//    self.title = NSLocalizedString(@"addTask-TitleLabel", nil);
-//    NSString *addLabel = NSLocalizedString(@"AddButtonLabel", nil);
-//    NSString *cancelLabel = NSLocalizedString(@"CancelButtonLabel", nil);
-//    
-//    AddTaskView *addTaskView = [[[AddTaskView alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-//    addTaskView.backgroundColor = [UIColor whiteColor];
-//    
-//    UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithTitle:cancelLabel
-//                                                               style:UIBarButtonItemStylePlain
-//                                                              target:self
-//                                                              action:@selector(cancel)];
-//    UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithTitle:addLabel
-//                                                            style:UIBarButtonSystemItemAdd
-//                                                           target:self
-//                                                           action:@selector(add)];
-//    
-//    addTaskView.navItem.title = self.title;
-//    addTaskView.navItem.leftBarButtonItem = cancel;
-//    addTaskView.navItem.rightBarButtonItem = add;
-//    
-//    [addTaskView addSubview:self.tableView];
-//    
-//    self.view = addTaskView;
-//    
-//    [cancel release];
-//    [add release];
-//    // Uncomment the following line to preserve selection between presentations.
-//    // self.clearsSelectionOnViewWillAppear = NO;
-//    
-//    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//}
-//
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
-//
 @end
