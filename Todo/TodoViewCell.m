@@ -11,8 +11,12 @@
 
 @implementation TodoViewCell
 @synthesize task = _task;
+@synthesize textLabel = _label;
+@synthesize detailTextLabel = _detailLabel;
+@synthesize checkbox = _checkbox;
 
 - (void)dealloc {
+    [_checkbox release];
     [_task release];
     [super dealloc];
 }
@@ -21,6 +25,12 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(65, 10, self.frame.size.width-65, 30)];
+        [self.contentView addSubview:_label];
+        
+        _detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 35, self.frame.size.width-65, 20)];
+        [self.contentView addSubview:_detailLabel];
+        
         // Style du titre
         self.textLabel.adjustsFontSizeToFitWidth = YES;
         self.textLabel.textColor = [UIColor darkGrayColor];             // Couleur pour le titre
@@ -31,9 +41,26 @@
         
         // Style de la cellule
         self.selectionStyle = UITableViewCellSelectionStyleGray;        // Style de la cellule à la selection
+        
+        //self.bounds = CGRectMake(self.bounds.origin.x, self.bounds.origin.y, 290, self.bounds.size.height);
+        //[self addSubview:_checkbox];
     }
     
     return self;
+}
+
+-(void)drawRect:(CGRect)rect
+{
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+    CGContextSetRGBFillColor(ctx, .8, .5, .6, 1);
+    //CGContextSetRGBStrokeColor(ctx, .8, .5, .6, 1);
+    CGContextFillRect(ctx, CGRectMake(0, 0, 50, self.frame.size.height));
+    //CGContextStrokeRect(ctx, CGRectMake(0, 0, 50, self.frame.size.height));
+    
+    [super drawRect:rect];
+    
+
 }
 
 - (void)setTask:(Todo *)task {

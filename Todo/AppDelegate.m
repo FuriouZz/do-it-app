@@ -136,11 +136,11 @@
          
          If you encounter schema incompatibility errors during development, you can reduce their frequency by:
          * Simply deleting the existing store:
-         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-         
-         * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
-         @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
-         
+         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+        
+         Performing automatic lightweight migration by passing the following dictionary as the options parameter:
+         @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES};
+        
          Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
          
          */

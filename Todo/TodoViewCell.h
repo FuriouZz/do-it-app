@@ -12,6 +12,7 @@
 
 @interface TodoViewCell : UITableViewCell
 @property (nonatomic, retain) Todo *task;
+@property (nonatomic, retain) UIView *checkbox;
 
 + (CGFloat)heightForCellWithPost:(Todo *)task;
 @end

@@ -51,9 +51,9 @@
 		D9B56E6816BD69D0009E26AC /* Todo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todo.xcdatamodel; sourceTree = "<group>"; };
 		D9B56E6E16BD9709009E26AC /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
 		D9B56E6F16BD9709009E26AC /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
-		D9C7096516C05036006CF9EA /* TodoAddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = file; path = TodoAddViewController.h; sourceTree = "<group>"; };
-		D9C7096B16C05DC0006CF9EA /* TodoTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoTextField.h; sourceTree = SOURCE_ROOT; };
-		D9C7096C16C05DC0006CF9EA /* TodoTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoTextField.m; sourceTree = SOURCE_ROOT; };
+		D9C7096516C05036006CF9EA /* TodoAddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodoAddViewController.h; sourceTree = "<group>"; };
+		D9C7096B16C05DC0006CF9EA /* TodoTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodoTextField.h; path = Todo/TodoTextField.h; sourceTree = SOURCE_ROOT; };
+		D9C7096C16C05DC0006CF9EA /* TodoTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodoTextField.m; path = Todo/TodoTextField.m; sourceTree = SOURCE_ROOT; };
 		D9D50D4116BDCBE60079727A /* TodoAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodoAddViewController.m; path = Todo/TodoAddViewController.m; sourceTree = SOURCE_ROOT; };
 		D9D50D4716BDDA3E0079727A /* TodoTextFieldViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoTextFieldViewCell.h; sourceTree = "<group>"; };
 		D9D50D4816BDDA3E0079727A /* TodoTextFieldViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoTextFieldViewCell.m; sourceTree = "<group>"; };
