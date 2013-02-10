@@ -70,7 +70,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+    
     TodoTextFieldViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if(cell == nil)
     {
         cell = [[TodoTextFieldViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
@@ -110,6 +112,7 @@
     todo.title = titleTextField.text;
     todo.note  = noteTextField.text;
     todo.createdAt = todo.updatedAt = [NSDate date];
+    todo.isChecked = [NSNumber numberWithBool:NO];
     
     // Malgré que l'objet soit créé, il n'est encore enregistré dans la BDD.
     // La tâche est déjà enregistrée dans le contexte. Mais le contexte lui ne l'est pas encore.

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D914FA6516C844360009B812 /* CheckboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = D914FA6416C844360009B812 /* CheckboxView.m */; };
 		D91CEBA016B5C96200D5EF32 /* TodoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */; };
+		D9336BCA16C7D08000D942D5 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = D9336BC916C7D08000D942D5 /* Todo.m */; };
 		D94288D816BAF76A0093A84F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D94288DA16BAF76A0093A84F /* Localizable.strings */; };
 		D9515DF716B5A5CB00821DBF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9515DF616B5A5CB00821DBF /* UIKit.framework */; };
 		D9515DF916B5A5CB00821DBF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9515DF816B5A5CB00821DBF /* Foundation.framework */; };
@@ -21,15 +23,18 @@
 		D9515E1016B5A5CB00821DBF /* TodoShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9515E0F16B5A5CB00821DBF /* TodoShowViewController.m */; };
 		D9B56E5B16BD64B8009E26AC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B56E5A16BD64B8009E26AC /* CoreData.framework */; };
 		D9B56E6916BD69D0009E26AC /* Todo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9B56E6716BD69D0009E26AC /* Todo.xcdatamodeld */; };
-		D9B56E7016BD9709009E26AC /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B56E6F16BD9709009E26AC /* Todo.m */; };
 		D9C7096D16C05DC0006CF9EA /* TodoTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C7096C16C05DC0006CF9EA /* TodoTextField.m */; };
 		D9D50D4216BDCBE60079727A /* TodoAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D50D4116BDCBE60079727A /* TodoAddViewController.m */; };
 		D9D50D4916BDDA3F0079727A /* TodoTextFieldViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D50D4816BDDA3E0079727A /* TodoTextFieldViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D914FA6316C844360009B812 /* CheckboxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckboxView.h; sourceTree = "<group>"; };
+		D914FA6416C844360009B812 /* CheckboxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckboxView.m; sourceTree = "<group>"; };
 		D91CEB9E16B5C96200D5EF32 /* TodoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoViewCell.h; sourceTree = "<group>"; };
 		D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoViewCell.m; sourceTree = "<group>"; };
+		D9336BC816C7D08000D942D5 /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
+		D9336BC916C7D08000D942D5 /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
 		D94288D916BAF76A0093A84F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D94288DC16BAF7800093A84F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D9515DF216B5A5CB00821DBF /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,8 +54,6 @@
 		D9515E0F16B5A5CB00821DBF /* TodoShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoShowViewController.m; sourceTree = "<group>"; };
 		D9B56E5A16BD64B8009E26AC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D9B56E6816BD69D0009E26AC /* Todo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todo.xcdatamodel; sourceTree = "<group>"; };
-		D9B56E6E16BD9709009E26AC /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
-		D9B56E6F16BD9709009E26AC /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
 		D9C7096516C05036006CF9EA /* TodoAddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodoAddViewController.h; sourceTree = "<group>"; };
 		D9C7096B16C05DC0006CF9EA /* TodoTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodoTextField.h; path = Todo/TodoTextField.h; sourceTree = SOURCE_ROOT; };
 		D9C7096C16C05DC0006CF9EA /* TodoTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodoTextField.m; path = Todo/TodoTextField.m; sourceTree = SOURCE_ROOT; };
@@ -74,6 +77,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D914FA6216C843C30009B812 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D91CEB9E16B5C96200D5EF32 /* TodoViewCell.h */,
+				D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */,
+				D914FA6316C844360009B812 /* CheckboxView.h */,
+				D914FA6416C844360009B812 /* CheckboxView.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		D9515DE716B5A5CB00821DBF = {
 			isa = PBXGroup;
 			children = (
@@ -142,8 +156,7 @@
 		D9515E1A16B5A5E500821DBF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D91CEB9E16B5C96200D5EF32 /* TodoViewCell.h */,
-				D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */,
+				D914FA6216C843C30009B812 /* Cell */,
 				D9C7096A16C05C1F006CF9EA /* Form */,
 			);
 			name = Views;
@@ -163,8 +176,8 @@
 		D9C7096616C052E3006CF9EA /* Todo */ = {
 			isa = PBXGroup;
 			children = (
-				D9B56E6E16BD9709009E26AC /* Todo.h */,
-				D9B56E6F16BD9709009E26AC /* Todo.m */,
+				D9336BC816C7D08000D942D5 /* Todo.h */,
+				D9336BC916C7D08000D942D5 /* Todo.m */,
 			);
 			name = Todo;
 			sourceTree = "<group>";
@@ -252,10 +265,11 @@
 				D9515E1016B5A5CB00821DBF /* TodoShowViewController.m in Sources */,
 				D91CEBA016B5C96200D5EF32 /* TodoViewCell.m in Sources */,
 				D9B56E6916BD69D0009E26AC /* Todo.xcdatamodeld in Sources */,
-				D9B56E7016BD9709009E26AC /* Todo.m in Sources */,
 				D9D50D4216BDCBE60079727A /* TodoAddViewController.m in Sources */,
 				D9D50D4916BDDA3F0079727A /* TodoTextFieldViewCell.m in Sources */,
 				D9C7096D16C05DC0006CF9EA /* TodoTextField.m in Sources */,
+				D9336BCA16C7D08000D942D5 /* Todo.m in Sources */,
+				D914FA6516C844360009B812 /* CheckboxView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

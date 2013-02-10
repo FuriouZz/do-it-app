@@ -2,7 +2,7 @@
 //  Todo.m
 //  Todo
 //
-//  Created by Christophe on 06/02/13.
+//  Created by Christophe Massolin on 10/02/13.
 //  Copyright (c) 2013 FuriouZz. All rights reserved.
 //
 
@@ -12,9 +12,9 @@
 @implementation Todo
 
 @dynamic createdAt;
+@dynamic isChecked;
 @dynamic note;
 @dynamic title;
 @dynamic updatedAt;
-@dynamic isChecked;
 
 @end

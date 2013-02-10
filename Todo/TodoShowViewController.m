@@ -114,7 +114,7 @@
         cell = [[[TodoViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
 
-    cell.task = (Todo *)[_todosArray objectAtIndex:indexPath.row];
+    cell.task = [_todosArray objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -124,28 +124,21 @@
     {
         NSManagedObject *todo = [_todosArray objectAtIndex:indexPath.row];
         
-        // Suppression de l'entrée du contexte
-        [_managedObjectContext deleteObject:todo];
-        
         // Suppression de l'entrée du tableau et de la vue
         [_todosArray removeObject:todo];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
- 
+        
+        // Suppression de l'entrée du contexte
+        [_managedObjectContext deleteObject:todo];
+        
         // Enregistrement en BDD
         NSError *error = nil;
         if(![_managedObjectContext save:&error])
         {
-            // Envoyer une erreur
+            NSLog(@"%@", error);
         }        
     }
 }
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
 
 #pragma mark - UITableViewDelegate
 
@@ -153,8 +146,16 @@
     return [TodoViewCell heightForCellWithPost:[_todosArray objectAtIndex:indexPath.row]];
 }
 
-// Quand une cellule est selectionnée, le fond gris disparait
+// Quand je sélectionne une cellule, je change son état
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSManagedObject *todo = [_todosArray objectAtIndex:indexPath.row];
+    
+    BOOL checkValue = ![[todo valueForKey:@"isChecked"] boolValue];
+    [todo setValue:[NSNumber numberWithBool:checkValue] forKey:@"isChecked"];
+    
+    [_managedObjectContext save:nil];
+    
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
