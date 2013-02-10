@@ -41,4 +41,11 @@
     [self.contentView addSubview:_textField];
 }
 
+#pragma mark - TextField Delegate
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
 @end

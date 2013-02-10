@@ -115,6 +115,9 @@
     }
 
     cell.task = [_todosArray objectAtIndex:indexPath.row];
+    cell.checkboxView.indexPath = indexPath;
+    cell.checkboxView.delegate = self;
+    
     return cell;
 }
 
@@ -147,7 +150,10 @@
 }
 
 // Quand je sélectionne une cellule, je change son état
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSLog(@"Selected");
+//}
+-(void)changeMarkStateAtIndexPath:(NSIndexPath *)indexPath {
     NSManagedObject *todo = [_todosArray objectAtIndex:indexPath.row];
     
     BOOL checkValue = ![[todo valueForKey:@"isChecked"] boolValue];
@@ -155,8 +161,8 @@
     
     [_managedObjectContext save:nil];
     
-    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - AddTaskViewDelegate

@@ -26,7 +26,7 @@
         self.tableView.scrollEnabled = NO;
         
         titleTextField = [[TodoTextField alloc] initWithFrame:CGRectMake(0, 100, 0, 0)];
-        titleTextField.placeholder = @"Your title";
+        titleTextField.placeholder = @"Your title*";
         titleTextField.delegate = self;
         
         noteTextField = [[TodoTextField alloc] initWithFrame:CGRectMake(0, 100, 0, 0)];
@@ -48,16 +48,29 @@
                                                                                   action:@selector(cancelAction)];
     self.title = NSLocalizedString(@"todoAdd-TitleLabel", nil);
     self.navigationItem.rightBarButtonItem = doneButton;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     self.navigationItem.leftBarButtonItem  = cancelButton;
+    
+    // Test pour savoir si les champs sont remplis
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testRequiredField) name:UIKeyboardWillHideNotification object:nil];
     
     [doneButton release];
     [cancelButton release];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)testRequiredField
+{
+    if([titleTextField.text length] > 0)
+    {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
 }
 
 #pragma mark - Table view data source
@@ -92,6 +105,13 @@
     }
 
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Selected");
 }
 
 #pragma mark - UITextFieldDelegate
