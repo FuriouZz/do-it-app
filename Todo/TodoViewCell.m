@@ -47,10 +47,10 @@
         [self.contentView addSubview:_detailLabel];
         
         // Configure checkboxView
-        _checkboxView = [UIImageView new];
+        _checkboxView = [CheckboxView new];
         _checkboxView.userInteractionEnabled = YES;
         [self.contentView addSubview:_checkboxView];
-        checkboxImage = [self renderMark];
+        checkboxImage = [_checkboxView renderMark];
         
         // Others configurations
         self.selectionStyle = UITableViewCellStyleDefault;        // Style de la cellule à la selection
@@ -66,7 +66,11 @@
     self.textLabel.text = _todo.title;
     self.detailTextLabel.text = _todo.note;
     _isMarked = _todo.isChecked.boolValue;
-    _checkboxView.image = (_isMarked) ? checkboxImage : nil;
+    if(_isMarked)
+        _checkboxView.backgroundColor = [UIColor colorWithRed:42/255.0 green:197/255.0 blue:.0 alpha:1.0];
+    else
+        _checkboxView.backgroundColor = [UIColor colorWithRed:0.0 green:.0 blue:.0 alpha:.0];
+    //_checkboxView.image = (_isMarked) ? checkboxImage : nil;
 }
 
 // Défini la taille des cellules
@@ -76,6 +80,14 @@
     return fmaxf(70.0f, sizeToFit.height + 45.0f);
 }
 
+- (void)drawRect:(CGRect)rect
+{
+    _checkboxView.frame = CGRectMake(0, 0, checkboxSize.width, checkboxSize.height);
+    [_checkboxView drawRect:rect];
+    
+    [super drawRect:rect];
+}
+
 //#pragma mark - UIView
 //- (void)setSelected:(BOOL)selected animated:(BOOL)animated
 //{
@@ -83,72 +95,4 @@
 //
 //    // Configure the view for the selected state
 //}
-
-- (void)drawRect:(CGRect)rect
-{
-    _checkboxView.frame = CGRectMake(0, 0, checkboxSize.width, checkboxSize.height);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    
-    // Dessine la checkbox
-    CGContextSaveGState(ctx);
-    {
-        CGContextSetRGBStrokeColor(ctx, 224/255.0, 224/255.0, 224/255.0, 1.0);
-        CGContextSetLineWidth(ctx, 5.0);
-        CGContextMoveToPoint(ctx, 36.0, 27);
-        CGContextAddLineToPoint(ctx, 22, 41.0);
-        CGContextAddLineToPoint(ctx, 14.0, 33.0);
-        CGContextSetShouldAntialias(ctx, YES);
-        CGContextStrokePath(ctx);
-    }
-    CGContextRestoreGState(ctx);
-    
-    // Dessine la délimitation à droite
-    CGContextSetRGBStrokeColor(ctx, 224/255.0, 224/255.0, 224/255.0, 1.0);
-    CGContextSetLineWidth(ctx, 1.0);
-    CGContextMoveToPoint(ctx, checkboxSize.width, .0);
-    CGContextAddLineToPoint(ctx, checkboxSize.width, checkboxSize.height);
-    CGContextSetShouldAntialias(ctx, NO);
-    CGContextStrokePath(ctx);
-    
-    [super drawRect:rect];
-}
-
-- (UIImage *)renderMark
-{
-    // Définition du conteneur qui contiendra le dessin
-    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
-        UIGraphicsBeginImageContextWithOptions(checkboxSize, NO, [UIScreen mainScreen].scale);
-    else
-        UIGraphicsBeginImageContext(checkboxSize);
-    
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    
-    // Dessine l'arrière-plan
-    CGContextSaveGState(ctx);
-    {
-        CGContextSetRGBFillColor(ctx, 42/255.0, 197/255.0, .0, 1.0);
-        CGContextFillRect(ctx, CGRectMake(0, 0, checkboxSize.width+5, checkboxSize.height));
-    }
-    CGContextRestoreGState(ctx);
-    
-    // Dessine la checkbox
-    CGContextSaveGState(ctx);
-    {
-        CGContextSetRGBStrokeColor(ctx, 1.0, 1.0, 1.0, 1.0);
-        CGContextSetLineWidth(ctx, 5.0);
-        CGContextMoveToPoint(ctx, 36.0, 27);
-        CGContextAddLineToPoint(ctx, 22, 41.0);
-        CGContextAddLineToPoint(ctx, 14.0, 33.0);
-        CGContextSetShouldAntialias(ctx, YES);
-        CGContextStrokePath(ctx);
-    }
-    CGContextRestoreGState(ctx);
-    
-    UIImage *selectedMark = UIGraphicsGetImageFromCurrentImageContext();    // Récupération de ce qui a été dessiné.
-    
-    // Fermeture du conteneur. L'image est terminée.
-    UIGraphicsEndImageContext();
-    
-    return selectedMark;
-}
 @end

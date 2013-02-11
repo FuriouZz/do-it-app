@@ -75,15 +75,15 @@
     TodoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[TodoViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        // Define the tap gesture recognizer on the CheckboxView
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeMarkStateOnTap:)];
+//        [cell.checkboxView addGestureRecognizer:tap];
+//        [tap release];
     }
-
+    
     // Place data to the cell
     cell.todo = [_todosArray objectAtIndex:indexPath.row];
-    
-    // Define the tap gesture recognizer on the CheckboxView
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeMarkStateOnTap:)];
-    [cell.checkboxView addGestureRecognizer:tap];
-    [tap release];
+    cell.checkboxView.delegate = self;
     
     return cell;
 }
@@ -164,8 +164,26 @@
 }
 
 // Checkbox action
-- (void) changeMarkStateOnTap:(UITapGestureRecognizer *)tapRecognizer {
-    CGPoint tapLocation = [tapRecognizer locationInView:self.tableView];                // Get the touch position
+//- (void) changeMarkStateOnTap:(UITapGestureRecognizer *)tapRecognizer {
+//    CGPoint tapLocation = [tapRecognizer locationInView:self.tableView];                // Get the touch position
+//    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:tapLocation];       // Get the indexPath of the row in this touch position (Genious!)
+//    NSLog(@"%ld", (long)indexPath.row);
+//    NSManagedObject *todo = [_todosArray objectAtIndex:indexPath.row];                  // Get the managed object
+//    
+//    BOOL checkValue = ![[todo valueForKey:@"isChecked"] boolValue];                     // Toggle the value
+//    [todo setValue:[NSNumber numberWithBool:checkValue] forKey:@"isChecked"];           // Change the value
+//    
+//    [_managedObjectContext save:nil];                                                   // Update the data in DB
+//    
+//    // Reload the row with updated datas
+//    [self.tableView reloadData];
+//    //[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+//}
+
+- (void) changeMarkStateOnTap:(id)anyObject
+{
+    CGPoint tapLocation = [anyObject locationInView:self.tableView];                    // Get the touch position
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:tapLocation];       // Get the indexPath of the row in this touch position (Genious!)
     
     NSManagedObject *todo = [_todosArray objectAtIndex:indexPath.row];                  // Get the managed object
@@ -178,6 +196,7 @@
     // Reload the row with updated datas
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 #pragma mark - TodoAddViewDelegate

@@ -20,6 +20,7 @@
 		D9515E0B16B5A5CB00821DBF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9515E0A16B5A5CB00821DBF /* Default@2x.png */; };
 		D9515E0D16B5A5CB00821DBF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9515E0C16B5A5CB00821DBF /* Default-568h@2x.png */; };
 		D9515E1016B5A5CB00821DBF /* TodoShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9515E0F16B5A5CB00821DBF /* TodoShowViewController.m */; };
+		D9B0A14416C9AA0C0016446C /* CheckboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B0A14316C9AA0C0016446C /* CheckboxView.m */; };
 		D9B56E5B16BD64B8009E26AC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B56E5A16BD64B8009E26AC /* CoreData.framework */; };
 		D9B56E6916BD69D0009E26AC /* Todo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9B56E6716BD69D0009E26AC /* Todo.xcdatamodeld */; };
 		D9C7096D16C05DC0006CF9EA /* TodoTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C7096C16C05DC0006CF9EA /* TodoTextField.m */; };
@@ -49,6 +50,8 @@
 		D9515E0C16B5A5CB00821DBF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D9515E0E16B5A5CB00821DBF /* TodoShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodoShowViewController.h; sourceTree = "<group>"; };
 		D9515E0F16B5A5CB00821DBF /* TodoShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoShowViewController.m; sourceTree = "<group>"; };
+		D9B0A14216C9AA0C0016446C /* CheckboxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckboxView.h; sourceTree = "<group>"; };
+		D9B0A14316C9AA0C0016446C /* CheckboxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckboxView.m; sourceTree = "<group>"; };
 		D9B56E5A16BD64B8009E26AC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D9B56E6816BD69D0009E26AC /* Todo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todo.xcdatamodel; sourceTree = "<group>"; };
 		D9C7096516C05036006CF9EA /* TodoAddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodoAddViewController.h; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 			children = (
 				D91CEB9E16B5C96200D5EF32 /* TodoViewCell.h */,
 				D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */,
+				D9B0A14216C9AA0C0016446C /* CheckboxView.h */,
+				D9B0A14316C9AA0C0016446C /* CheckboxView.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 				D9D50D4916BDDA3F0079727A /* TodoTextFieldViewCell.m in Sources */,
 				D9C7096D16C05DC0006CF9EA /* TodoTextField.m in Sources */,
 				D9336BCA16C7D08000D942D5 /* Todo.m in Sources */,
+				D9B0A14416C9AA0C0016446C /* CheckboxView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
