@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CheckboxView.h"
 
 @class Todo;
-@class CheckboxView;
 
-@interface TodoViewCell : UITableViewCell
+@interface TodoViewCell : UITableViewCell {
+    UIImage *checkboxImage;
+}
 @property (nonatomic, assign) BOOL isMarked;
-@property (nonatomic, retain) Todo *task;
-@property (nonatomic, retain) CheckboxView *checkboxView;
+@property (nonatomic, retain) Todo *todo;
+@property (nonatomic, retain) UIImageView *checkboxView;
 
 + (CGFloat)heightForCellWithPost:(Todo *)task;
 @end

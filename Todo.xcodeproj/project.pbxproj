@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D914FA6516C844360009B812 /* CheckboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = D914FA6416C844360009B812 /* CheckboxView.m */; };
 		D91CEBA016B5C96200D5EF32 /* TodoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */; };
 		D9336BCA16C7D08000D942D5 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = D9336BC916C7D08000D942D5 /* Todo.m */; };
 		D94288D816BAF76A0093A84F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D94288DA16BAF76A0093A84F /* Localizable.strings */; };
@@ -29,8 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D914FA6316C844360009B812 /* CheckboxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckboxView.h; sourceTree = "<group>"; };
-		D914FA6416C844360009B812 /* CheckboxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckboxView.m; sourceTree = "<group>"; };
 		D91CEB9E16B5C96200D5EF32 /* TodoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoViewCell.h; sourceTree = "<group>"; };
 		D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoViewCell.m; sourceTree = "<group>"; };
 		D9336BC816C7D08000D942D5 /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
@@ -82,8 +79,6 @@
 			children = (
 				D91CEB9E16B5C96200D5EF32 /* TodoViewCell.h */,
 				D91CEB9F16B5C96200D5EF32 /* TodoViewCell.m */,
-				D914FA6316C844360009B812 /* CheckboxView.h */,
-				D914FA6416C844360009B812 /* CheckboxView.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -269,7 +264,6 @@
 				D9D50D4916BDDA3F0079727A /* TodoTextFieldViewCell.m in Sources */,
 				D9C7096D16C05DC0006CF9EA /* TodoTextField.m in Sources */,
 				D9336BCA16C7D08000D942D5 /* Todo.m in Sources */,
-				D914FA6516C844360009B812 /* CheckboxView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

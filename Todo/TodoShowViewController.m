@@ -114,7 +114,7 @@
         cell = [[[TodoViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
 
-    cell.task = [_todosArray objectAtIndex:indexPath.row];
+    cell.todo = [_todosArray objectAtIndex:indexPath.row];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeMarkStateOnTap:)];
     [cell.checkboxView addGestureRecognizer:tap];
@@ -137,11 +137,7 @@
         [_managedObjectContext deleteObject:todo];
         
         // Enregistrement en BDD
-        NSError *error = nil;
-        if(![_managedObjectContext save:&error])
-        {
-            NSLog(@"%@", error);
-        }        
+        [_managedObjectContext save:nil];
     }
 }
 
