@@ -115,8 +115,10 @@
     }
 
     cell.task = [_todosArray objectAtIndex:indexPath.row];
-    cell.checkboxView.indexPath = indexPath;
-    cell.checkboxView.delegate = self;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeMarkStateOnTap:)];
+    [cell.checkboxView addGestureRecognizer:tap];
+    [tap release];
     
     return cell;
 }
@@ -149,11 +151,9 @@
     return [TodoViewCell heightForCellWithPost:[_todosArray objectAtIndex:indexPath.row]];
 }
 
-// Quand je sélectionne une cellule, je change son état
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"Selected");
-//}
--(void)changeMarkStateAtIndexPath:(NSIndexPath *)indexPath {
+- (void) changeMarkStateOnTap:(UITapGestureRecognizer *)tapRecognizer {
+    CGPoint tapLocation = [tapRecognizer locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:tapLocation];
     NSManagedObject *todo = [_todosArray objectAtIndex:indexPath.row];
     
     BOOL checkValue = ![[todo valueForKey:@"isChecked"] boolValue];

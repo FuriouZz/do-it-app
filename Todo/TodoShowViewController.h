@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Todo.h"
 #import "TodoAddViewController.h"
-#import "CheckboxView.h"
 
-@interface TodoShowViewController : UITableViewController <TodoAddViewControllerDelegate, CheckboxViewDelegate>
+@interface TodoShowViewController : UITableViewController <TodoAddViewControllerDelegate>
 @property (retain, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (retain, nonatomic) NSMutableArray *todosArray;
 @property (retain, nonatomic) UIBarButtonItem *addButton;

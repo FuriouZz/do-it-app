@@ -10,13 +10,7 @@
 
 @class TodoViewCell;
 
-@protocol CheckboxViewDelegate
-- (void) changeMarkStateAtIndexPath:(NSIndexPath *)indexPath;
-@end
 
 @interface CheckboxView : UIImageView
-@property (nonatomic, assign) id <CheckboxViewDelegate> delegate;
-@property (nonatomic, retain) NSIndexPath *indexPath;
-
 - (UIImage *)renderMark;
 @end

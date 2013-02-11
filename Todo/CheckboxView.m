@@ -13,11 +13,9 @@
 #define checkboxBoxWidth    checkboxSize.width + checkboxMargin
 
 @implementation CheckboxView
-@synthesize indexPath = _indexPath;
 
 - (void)dealloc
 {
-    [_indexPath release];
     [super dealloc];
 }
 
@@ -95,12 +93,6 @@
     UIGraphicsEndImageContext();
     
     return selectedMark;
-}
-
-#pragma mark - Events
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.delegate changeMarkStateAtIndexPath:_indexPath];
 }
 
 @end
