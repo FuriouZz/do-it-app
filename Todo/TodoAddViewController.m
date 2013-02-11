@@ -23,8 +23,9 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.tableView.scrollEnabled = NO;
+        self.tableView.scrollEnabled = NO;      // Disable scroll
         
+        // Declare textfields that I want to see
         titleTextField = [[TodoTextField alloc] initWithFrame:CGRectMake(0, 100, 0, 0)];
         titleTextField.placeholder = @"Your title*";
         titleTextField.delegate = self;
@@ -39,19 +40,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.title = NSLocalizedString(@"todoAdd-TitleLabel", nil);     // Title view
+    
+    // Create done and cancel buttons
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                                 target:self
-                                                                                action:@selector(doneAction)];
+                                                                                action:@selector(doneButtonAction)];
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                                                   target:self
-                                                                                  action:@selector(cancelAction)];
-    self.title = NSLocalizedString(@"todoAdd-TitleLabel", nil);
+                                                                                  action:@selector(cancelButtonAction)];
+    // Place buttons in the navigation bar
     self.navigationItem.rightBarButtonItem = doneButton;
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.navigationItem.leftBarButtonItem  = cancelButton;
     
-    // Test pour savoir si les champs sont remplis
+    // Test if textfields are not empty when the keyword will hide
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testRequiredField) name:UIKeyboardWillHideNotification object:nil];
     
     [doneButton release];
@@ -63,14 +66,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)testRequiredField
-{
-    if([titleTextField.text length] > 0)
-    {
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-    }
 }
 
 #pragma mark - Table view data source
@@ -107,28 +102,33 @@
     return cell;
 }
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"Selected");
-}
-
 #pragma mark - UITextFieldDelegate
-
+// When you press the return button in the keyboard, the textfield resignFirstResponder and the keyboard hide
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
 }
 
+#pragma mark - Methods
+
+// Test textfields
+- (void)testRequiredField
+{
+    if([titleTextField.text length] > 0)
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    else
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+}
+
 #pragma mark - Actions
 
-- (void)doneAction
+- (void)doneButtonAction
 {
-    // Déclaration de la nouvelle tâche et enregistrement dans le contexte
+    // Declare the new todo and its context
     Todo *todo = (Todo *)[NSEntityDescription insertNewObjectForEntityForName:@"Todo" inManagedObjectContext:_managedObjectContext];
     
+    // Fill the object with the data
     todo.title = titleTextField.text;
     todo.note  = noteTextField.text;
     todo.createdAt = todo.updatedAt = [NSDate date];
@@ -136,17 +136,23 @@
     
     // Malgré que l'objet soit créé, il n'est encore enregistré dans la BDD.
     // La tâche est déjà enregistrée dans le contexte. Mais le contexte lui ne l'est pas encore.
+    
+    // The object is in the managedContext, but not save in the DB.
+    // You need to do (if you don't want catch error) : [_managedObjectContext save:nil];
+    
     NSError *error = nil;
     if(![_managedObjectContext save:&error])
     {
         NSLog(@"%@", error);
     }
+    [error release];
     
+    // Send the todo to the delegate and close the TodoAddView
     [self.delegate insertTodoToList:todo];
     [self.delegate todoAddViewControllerDidFinish:self];
 }
 
-- (void)cancelAction
+- (void)cancelButtonAction
 {
     [self.delegate todoAddViewControllerDidFinish:self];
 }
