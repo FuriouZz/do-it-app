@@ -1,2 +1,2 @@
-DoIt
-====
+Do It Application
+=================
