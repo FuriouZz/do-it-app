@@ -15,7 +15,8 @@
 
 - (void)dealloc
 {
-    [_managedObjectContext release];
+    safeRelease(_managedObjectContext);
+
     [super dealloc];
 }
 
@@ -28,10 +29,12 @@
         // Declare textfields that I want to see
         titleTextField = [[TodoTextField alloc] initWithFrame:CGRectMake(0, 100, 0, 0)];
         titleTextField.placeholder = @"Your title*";
+        titleTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         titleTextField.delegate = self;
         
         noteTextField = [[TodoTextField alloc] initWithFrame:CGRectMake(0, 100, 0, 0)];
         noteTextField.placeholder = @"Your note";
+        noteTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         noteTextField.delegate = self;
     }
     return self;
@@ -59,7 +62,6 @@
     
     [doneButton release];
     [cancelButton release];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,9 +92,11 @@
     {
         case 0:
             cell.textField = titleTextField;
+            [titleTextField release];
             break;
         case 1:
             cell.textField = noteTextField;
+            [noteTextField release];
             break;
         default:
             cell.textField = [[[TodoTextField alloc] initWithFrame:CGRectZero] autorelease];

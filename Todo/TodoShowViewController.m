@@ -28,9 +28,10 @@
 }
 
 - (void)dealloc {
-    [_managedObjectContext release];
-    [_addButton release];
-    [_todosArray release];
+    safeRelease(_managedObjectContext);
+    safeRelease(_addButton);
+    safeRelease(_todosArray);
+    
     [super dealloc];
 }
 

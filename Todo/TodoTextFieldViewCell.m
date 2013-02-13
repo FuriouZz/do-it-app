@@ -13,7 +13,8 @@
 
 -(void)dealloc
 {
-    [_textField release];
+    safeRelease(_textField);
+    
     [super dealloc];
 }
 

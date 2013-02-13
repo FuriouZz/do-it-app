@@ -22,11 +22,12 @@
 @synthesize checkboxView = _checkboxView;
 
 - (void)dealloc {
-    [checkboxImage release];
-    [_checkboxView release];
-    [_label release];
-    [_detailLabel release];
-    [_todo release];
+    safeRelease(checkboxImage);
+    safeRelease(_todo);
+    safeRelease(_checkboxView);
+    safeRelease(_label);
+    safeRelease(_detailLabel);
+
     [super dealloc];
 }
 
